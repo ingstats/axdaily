@@ -50,7 +50,7 @@
   .views a[aria-current="page"]{color:var(--ink);font-weight:700;border-bottom-color:var(--hana)}
   .top .join{font-size:15px;font-weight:700;color:var(--white);background:var(--hana-text);text-decoration:none;padding:8px 16px;border-radius:4px;min-height:36px;display:inline-flex;align-items:center}
 
-  /* 카카오톡으로 받기: 머리 버튼 + 안내 창 (신청서는 발송기 웹 앱 is.gd/axkakao) */
+  /* 카카오톡으로 받기: 머리 버튼 + 신청 창 (창 안에서 신청 → 발송기 웹 앱이 받음 → 카카오 동의) */
   .kk-open{flex:none;font:inherit;font-size:15px;font-weight:700;color:var(--white);background:var(--hana-text);border:0;padding:8px 16px;border-radius:4px;min-height:36px;cursor:pointer;white-space:nowrap}
   .kk-open:hover{background:var(--ink)}
   .kk-open .s{display:none}
@@ -68,9 +68,20 @@
   .kk-go{flex:1;display:inline-flex;justify-content:center;align-items:center;min-height:48px;background:var(--hana-text);color:var(--white);font-size:16px;font-weight:700;text-decoration:none;border-radius:4px}
   .kk-go:hover{background:var(--ink)}
   .kk-x{min-height:48px;padding:0 18px;border:1px solid var(--rule);background:var(--white);border-radius:4px;font:inherit;font-size:15px;color:var(--ink);cursor:pointer}
-  .kk-url{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px;font-size:13px;color:var(--sub)}
-  .kk-url b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
-  .kk-url button{min-height:40px;padding:0 4px;border:0;background:none;font:inherit;font-size:13px;font-weight:700;color:var(--hana-text);cursor:pointer}
+  button.kk-go{border:0;font:inherit;font-size:16px;font-weight:700;cursor:pointer}
+  button.kk-go[disabled]{opacity:.55;cursor:default}
+  .kk form{margin-top:12px}
+  .kk label.f{display:block;margin:14px 0 6px;font-size:14px;font-weight:700;color:var(--ink)}
+  .kk input[type=text],.kk input[type=email]{display:block;width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:11px 12px;border:1px solid var(--rule);border-radius:4px;color:var(--ink);background:var(--white)}
+  .kk input[type=text]:focus,.kk input[type=email]:focus{outline:2px solid var(--hana-text);outline-offset:1px}
+  .kk .kk-help{margin:6px 0 0;font-size:13px;line-height:1.6;color:var(--sub)}
+  .kk .kk-ag{display:flex;gap:10px;align-items:flex-start;margin:16px 0 0;font-size:14px;line-height:1.6;color:var(--ink);cursor:pointer}
+  .kk .kk-ag input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--hana-text)}
+  .kk .kk-msg{min-height:1.5em;margin:10px 0 0;font-size:14px;line-height:1.5;color:#C0201B}
+  .kk .kk-done{margin:16px 0 0;font-size:13px;font-weight:700;color:var(--hana-text)}
+  .kk-kakao{display:flex;justify-content:center;align-items:center;min-height:50px;margin-top:16px;border-radius:4px;background:#FEE500;color:#191919;font-size:16px;font-weight:700;text-decoration:none}
+  .kk .kk-lv,.ft-kk{display:inline;min-height:0;padding:0;border:0;background:none;font:inherit;color:var(--ink);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .kk .kk-note{margin-top:16px}
   @media (max-width:640px){.kk-open .l{display:none}.kk-open .s{display:inline}}
   @media (max-width:560px){
     header.top .wrap{flex-wrap:wrap;padding:10px 20px 0;gap:0 12px;min-height:0}
@@ -357,6 +368,38 @@
     .views{margin-left:0;width:100%;gap:16px}
     .views a{min-height:44px}
   }
+  /* 폰: 기사는 '주요 내용'만 먼저 보이고 나머지는 펼쳐 보기, 시장 지표는 값만 한 줄씩 */
+  .more-b{display:none}
+  details.mk-src > summary{list-style:none}
+  details.mk-src > summary::-webkit-details-marker{display:none}
+  @media (min-width:561px){details.mk-src > summary{display:none}}
+  @media (max-width:560px){
+    article.item{padding-top:24px}
+    article.item.fold:not(.open) dl.pts div.x,article.item.fold:not(.open) .src{display:none}
+    dl.pts{margin-top:8px}
+    .more-b{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0;border:0;background:none;font:inherit;font-size:14px;font-weight:700;color:var(--hana-text);cursor:pointer}
+    .more-b::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+    article.item.open .more-b::after{transform:translateY(2px) rotate(-135deg)}
+    .mk-bar{display:none}
+    ul.wl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:16px}
+    .wl-r{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 0}
+    .wl-s{display:none}
+    .wl-n .s.nt{display:none}
+    .wl-n .nm{font-size:14px;line-height:1.45}
+    .wl-n .s{font-size:12px}
+    .wl-v{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:8px;text-align:left}
+    .wl-v .v{display:inline;font-size:16px}
+    .wl-v .ch{display:inline}
+    .wl-h{margin-top:12px}
+    .hr-h{margin-top:20px}
+    details.mk-src{margin-top:4px}
+    details.mk-src > summary{display:flex;align-items:center;gap:8px;min-height:44px;font-size:13px;color:var(--sub);cursor:pointer}
+    details.mk-src > summary::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+    details.mk-src[open] > summary::after{transform:translateY(2px) rotate(-135deg)}
+    details.mk-src .src2{margin-top:0}
+    section.sec{margin-top:32px}
+    .notes{margin-top:40px}
+  }
   @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 </head>
@@ -405,33 +448,74 @@
   <div class="kk-in">
     <h2 id="kk-t">카카오톡으로 매일 받기</h2>
     <p class="kk-lead">평일 오전 8시, 그날 호의 핵심 요약을 카카오톡으로 보내 드립니다.</p>
-    <ol>
-      <li><span>신청서에 이름과 카카오계정 이메일을 적습니다.<small>카카오톡 › 설정 › 카카오계정에서 확인할 수 있습니다.</small></span></li>
-      <li><span>카카오 로그인 후 메시지 전송·친구목록 두 항목에 동의합니다.</span></li>
-      <li><span>담당자가 등록하면 카카오톡으로 환영 메시지가 옵니다. 그다음 평일부터 받습니다.</span></li>
-    </ol>
-    <p class="kk-note">발신 담당자와 서로 카카오톡 친구여야 받을 수 있습니다. 이름·이메일은 발송 등록에만 씁니다. 그만 받기도 같은 신청서에서 할 수 있습니다.</p>
-    <div class="kk-act">
-      <a class="kk-go" href="https://is.gd/axkakao" target="_blank" rel="noopener">신청서 열기</a>
-      <button type="button" class="kk-x" id="kk-x">닫기</button>
+    <div id="kk-s1">
+      <form id="kk-f" novalidate>
+        <label class="f" for="kk-nm">이름</label>
+        <input id="kk-nm" type="text" maxlength="20" autocomplete="name">
+        <label class="f" for="kk-em">카카오계정 이메일</label>
+        <input id="kk-em" type="email" maxlength="80" autocomplete="email" inputmode="email">
+        <p class="kk-help">카카오톡 › 설정 › 카카오계정에서 확인할 수 있습니다.</p>
+        <label class="kk-ag"><input id="kk-ag" type="checkbox"><span>이름·이메일을 발송 등록에만 쓰는 데 동의합니다. 그만 받으면 지웁니다.</span></label>
+        <p class="kk-msg" id="kk-msg" role="alert"></p>
+        <div class="kk-act">
+          <button type="submit" class="kk-go" id="kk-go">신청하기</button>
+          <button type="button" class="kk-x">닫기</button>
+        </div>
+      </form>
     </div>
-    <p class="kk-url"><span>휴대폰에서 직접 열기 <b>is.gd/axkakao</b></span><button type="button" id="kk-copy">주소 복사</button></p>
+    <div id="kk-s2" hidden>
+      <p class="kk-done">신청서 접수 완료</p>
+      <ol>
+        <li><span>아래 노란 버튼으로 카카오에 로그인합니다.</span></li>
+        <li><span><b>전체 동의</b>를 눌러 메시지 전송·친구목록 두 항목에 동의합니다.</span></li>
+        <li><span>담당자가 등록하면 카카오톡으로 환영 메시지가 옵니다. 그다음 평일부터 받습니다.</span></li>
+      </ol>
+      <a class="kk-kakao" id="kk-auth" href="#">카카오로 동의하기</a>
+    </div>
+    <div id="kk-s3" hidden>
+      <p class="kk-done">이미 등록돼 있습니다</p>
+      <p class="kk-lead">평일 오전 8시에 카카오톡으로 받고 있습니다.</p>
+      <div class="kk-act"><button type="button" class="kk-x">닫기</button></div>
+    </div>
+    <p class="kk-note">발신 담당자와 서로 카카오톡 친구여야 받을 수 있습니다. 그만 받으려면 <button type="button" class="kk-lv" id="kk-lv">여기</button>를 누르세요(카카오로 본인 확인).</p>
   </div>
 </dialog>
 <script>
 {
-  const dlg = document.getElementById('kk-dlg'), opener = document.getElementById('kk-open');
-  const show = () => { try { dlg.showModal(); } catch (e) { dlg.setAttribute('open', ''); } };
-  const hide = () => { try { dlg.close(); } catch (e) { dlg.removeAttribute('open'); } opener.focus(); };
-  opener.addEventListener('click', show);
-  document.getElementById('kk-x').addEventListener('click', hide);
+  const API = 'https://script.google.com/macros/s/AKfycbx4--zvtBPQD0Nf1isvS_-NT4L_1c-wPUqEi6X6WXALYf7cKN5LFrehO350Z3O6e1u4/exec';
+  const $k = (id) => document.getElementById(id);
+  const dlg = $k('kk-dlg'), opener = $k('kk-open');
+  let back = opener;
+  const show = (from) => { back = from || opener; try { dlg.showModal(); } catch (e) { dlg.setAttribute('open', ''); } };
+  const hide = () => { try { dlg.close(); } catch (e) { dlg.removeAttribute('open'); } if (back) back.focus(); };
+  window.kkOpen = show;
+  opener.addEventListener('click', () => show(opener));
+  dlg.querySelectorAll('.kk-x').forEach(b => b.addEventListener('click', hide));
   dlg.addEventListener('click', (e) => { if (e.target === dlg) hide(); });
-  const cp = document.getElementById('kk-copy');
-  cp.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText('https://is.gd/axkakao'); cp.textContent = '복사했습니다'; }
-    catch (e) { cp.textContent = '주소를 직접 입력해 주세요'; }
-    setTimeout(() => { cp.textContent = '주소 복사'; }, 2000);
+  const post = async (body) => { const r = await fetch(API, {method: 'POST', body: JSON.stringify(body)}); if (!r.ok) throw new Error(String(r.status)); return r.json(); };
+  const step = (n) => ['kk-s1', 'kk-s2', 'kk-s3'].forEach((id, i) => { $k(id).hidden = i !== n; });
+  const go = $k('kk-go'), msg = $k('kk-msg');
+  $k('kk-f').addEventListener('submit', async (e) => {
+    e.preventDefault(); msg.textContent = '';
+    const name = $k('kk-nm').value.trim(), email = $k('kk-em').value.trim();
+    if (!name) { msg.textContent = '이름을 적어 주세요.'; $k('kk-nm').focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = '카카오계정 이메일 형식을 확인해 주세요.'; $k('kk-em').focus(); return; }
+    if (!$k('kk-ag').checked) { msg.textContent = '아래 안내에 동의해 주세요.'; return; }
+    go.disabled = true; go.textContent = '보내는 중…';
+    try {
+      const r = await post({act: 'apply', name, email, agree: true});
+      if (!r || !r.ok) { msg.textContent = (r && r.msg) || '신청하지 못했습니다. 다시 시도해 주세요.'; return; }
+      if (r.active) { step(2); return; }
+      $k('kk-auth').href = r.url; step(1); $k('kk-auth').focus();
+    } catch (err) { msg.textContent = '연결이 불안정합니다. 잠시 뒤 다시 눌러 주세요.'; }
+    finally { go.disabled = false; go.textContent = '신청하기'; }
   });
+  $k('kk-lv').addEventListener('click', async (e) => {
+    const b = e.currentTarget; b.disabled = true;
+    try { const r = await post({act: 'leave'}); if (r && r.ok && r.url) { location.href = r.url; return; } } catch (err) {}
+    b.disabled = false; step(0); msg.textContent = '지금은 연결할 수 없습니다. 잠시 뒤 다시 시도해 주세요.';
+  });
+  if (location.hash === '#kakao') { history.replaceState(null, '', location.pathname + location.search); show(opener); }
 }
 </script>
 
@@ -477,7 +561,8 @@
     } else {
       $('site').removeAttribute('href');
     }
-    $('foot').innerHTML = `<p class="foot-m">${esc(meta.description)}<br>발송 ${esc(meta.frequency_label)} | 발행 ${esc(meta.team)}</p>${esc(meta.name)} 발행 ${esc(meta.team)}, 문의 <a href="mailto:${esc(meta.contact_email)}">${esc(meta.contact_email)}</a><br>본 자료는 언론 보도와 공공기관 발표 자료를 요약·정리한 것으로, 기사 원문의 저작권은 각 언론사에 있습니다.<br>카카오톡으로 매일 받기: <a href="https://is.gd/axkakao">is.gd/axkakao</a>`;
+    $('foot').innerHTML = `<p class="foot-m">${esc(meta.description)}<br>발송 ${esc(meta.frequency_label)} | 발행 ${esc(meta.team)}</p>${esc(meta.name)} 발행 ${esc(meta.team)}${meta.contact_email && !/@example\.(com|org|net)$/i.test(meta.contact_email) ? `, 문의 <a href="mailto:${esc(meta.contact_email)}">${esc(meta.contact_email)}</a>` : ''}<br>본 자료는 언론 보도와 공공기관 발표 자료를 요약·정리한 것으로, 기사 원문의 저작권은 각 언론사에 있습니다.<br>카카오톡으로 매일 받기: <button type="button" class="ft-kk">신청하기</button>`;
+    $('foot').querySelector('.ft-kk').addEventListener('click', (e) => window.kkOpen && window.kkOpen(e.currentTarget));
   }
 
   function setView(v){
@@ -503,9 +588,10 @@
 
   function renderIssue(is){
     const items = (sec) => sec.items.length ? sec.items.map(it => `
-      <article class="item">
+      <article class="item${it.points.length > 1 ? ' fold' : ''}">
         <h4><a href="${esc(it.sources[0].url)}">${esc(it.headline)}</a></h4>
-        <dl class="pts">${it.points.map(p => `<div><dt>${esc(p.label)}</dt><dd>${hlText(p)}</dd></div>`).join('')}</dl>
+        <dl class="pts">${it.points.map((p, i) => `<div${i ? ' class="x"' : ''}><dt>${esc(p.label)}</dt><dd>${hlText(p)}</dd></div>`).join('')}</dl>
+        ${it.points.length > 1 ? `<button type="button" class="more-b" aria-expanded="false" data-l="${esc(it.points.slice(1).map(p => p.label).join('·'))} 보기">${esc(it.points.slice(1).map(p => p.label).join('·'))} 보기</button>` : ''}
         <p class="src">출처: ${it.sources.map(s => `<a href="${esc(s.url)}">${esc(s.outlet)}</a>(${esc(srcDate(s.published_at))})`).join(', ')}</p>
       </article>`).join('') : `<p class="empty">${esc(sec.empty_note || '해당 기간 중 관련 보도 없음')}</p>`;
 
@@ -528,6 +614,10 @@
           <h3 id="h-notes">참고</h3>
           ${is.notes.map(n => `<p>※ ${esc(n)}</p>`).join('')}
         </section>` : ''}`;
+    $('issue').querySelectorAll('.more-b').forEach(b => b.addEventListener('click', () => {
+      const open = b.closest('article').classList.toggle('open');
+      b.setAttribute('aria-expanded', open); b.textContent = open ? '접기' : b.dataset.l;
+    }));
   }
 
   async function showIssue(date){
@@ -636,15 +726,15 @@
     const wd = (iso) => { const [y, m, d] = iso.split('-').map(Number); return `${m}. ${d}.(${WD[new Date(y, m - 1, d).getDay()]})`; };
     const row = (r) => {
       const ev = r.ind.kind === 'event';
-      let sub = [];
+      let sub = [], nt = '';
       if (ev) {
         const mp = r.ind.mp_sp && r.ind.mp_sp[r.last.i];
         const k = byId.kr3y && before(upTo(byId.kr3y, asof).concat(), r.last.d);
         const sp = k ? Math.round((r.last.v - k.v) * 1000) / 10 : null;
         sub = [`${md(r.last.d)} 발행`, mp != null ? `민평 대비 ${sgnBp(mp)}` : k ? `국고채 3년 대비 ${sgnBp(sp)}` : ''];
-      } else sub = [r.ind.note || '', r.last.d !== refDate ? md(r.last.d) : ''];
+      } else { nt = r.ind.note || ''; sub = [r.last.d !== refDate ? md(r.last.d) : '']; }
       return `<li class="wl-r">
-        <div class="wl-n"><span class="nm">${esc(r.ind.label)}</span>${sub.filter(Boolean).map(x => `<span class="s">${esc(x)}</span>`).join('')}</div>
+        <div class="wl-n"><span class="nm">${esc(r.ind.label)}</span>${nt ? `<span class="s nt">${esc(nt)}</span>` : ''}${sub.filter(Boolean).map(x => `<span class="s">${esc(x)}</span>`).join('')}</div>
         <div class="wl-s" data-id="${esc(r.ind.id)}"><span class="pc"></span></div>
         <div class="wl-v"><span class="v num">${esc(fmtV(r.ind, r.last.v))}</span>${chgHtml(chg(r.ind, r.prev && r.prev.v, r.last.v), ev ? '직전 발행 대비 ' : '전일 대비 ')}</div>
       </li>`;
@@ -666,8 +756,8 @@
             </li>`).join('')}</ul>` : ''}
           </div>
         </div>
-        <p class="src2">자료: ${[S.ecos && `<a href="${esc(S.ecos.url)}">${esc(S.ecos.label)}</a>(국고채·CD·환율·KOSPI·KOSDAQ)`, S.kofia_curve && `<a href="${esc(S.kofia_curve.url)}">${esc(S.kofia_curve.label)}</a>(여전채 금리·스프레드·민평)`, S.nasdaq && `<a href="${esc(S.nasdaq.url)}">${esc(S.nasdaq.label)}</a>(NASDAQ 종합지수)`, S.kofia && `<a href="${esc(S.kofia.url)}">${esc(S.kofia.label)}</a>(하나캐피탈 발행)`].filter(Boolean).join(', ')}. 금리 등락 단위 bp(0.01%p).
-          ${market.hana && market.hana.mp_rule ? `민평 대비는 ${esc(market.hana.mp_rule)}(회차별은 발행액 가중 평균). ` : ''}하나캐피탈 발행금리(3년)는 ${esc(market.hana && market.hana.rule || '')}.</p>
+        <details class="mk-src"${window.matchMedia('(max-width:560px)').matches ? '' : ' open'}><summary>자료 출처·산출 기준</summary><p class="src2">자료: ${[S.ecos && `<a href="${esc(S.ecos.url)}">${esc(S.ecos.label)}</a>(국고채·CD·환율·KOSPI·KOSDAQ)`, S.kofia_curve && `<a href="${esc(S.kofia_curve.url)}">${esc(S.kofia_curve.label)}</a>(여전채 금리·스프레드·민평)`, S.nasdaq && `<a href="${esc(S.nasdaq.url)}">${esc(S.nasdaq.label)}</a>(NASDAQ 종합지수)`, S.kofia && `<a href="${esc(S.kofia.url)}">${esc(S.kofia.label)}</a>(하나캐피탈 발행)`].filter(Boolean).join(', ')}. 금리 등락 단위 bp(0.01%p).
+          ${market.hana && market.hana.mp_rule ? `민평 대비는 ${esc(market.hana.mp_rule)}(회차별은 발행액 가중 평균). ` : ''}하나캐피탈 발행금리(3년)는 ${esc(market.hana && market.hana.rule || '')}.</p></details>
       </div>`;
     sec.hidden = false;
     drawAllSpark();
