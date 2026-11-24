@@ -170,6 +170,8 @@
   .show > *{min-width:0}
   .show-date{margin:24px 0 0;font-size:var(--fs-h3);line-height:1.3;font-weight:400;letter-spacing:-0.02em;color:var(--white)}
   .show-no{margin:8px 0 0;font-size:15px;color:var(--on-dark-2)}
+  .show .prev{display:none}
+  .arch-m{display:none}
   .show-card{padding:32px;border-radius:var(--r-lg);background:var(--surface);color:var(--body)}
   .show-foot{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding-top:24px;border-top:1px solid var(--on-dark-line)}
   .show-foot ol{display:flex;flex-wrap:wrap;gap:4px 0;margin:0;padding:0;list-style:none}
@@ -193,7 +195,7 @@
   .jump .wrap{display:flex;justify-content:center;padding-top:12px;padding-bottom:12px}
   .jump .seg{overflow-x:auto;scrollbar-width:none}
   .jump .seg::-webkit-scrollbar{display:none}
-  section.sec,.news{scroll-margin-top:80px}
+  section.sec,.news,.arch-m{scroll-margin-top:80px}
 
   /* ---------- 주요 시장 지표 ---------- */
   .mk-panel{padding:32px 40px 24px;border-radius:var(--r-lg)}
@@ -394,6 +396,7 @@
   details.more .tw,details.more > .src2{padding-bottom:24px}
   details.more .tw{padding-bottom:12px}
   .tbl-card{padding:12px 40px 24px}
+  .sm-l,.sm-legend{display:none}
   .sched{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
   .sched .card{display:flex;flex-direction:column;padding:40px 32px}
   .sched .when{margin:40px 0 0;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:-0.01em}
@@ -432,27 +435,28 @@
     .wl-r{grid-template-columns:minmax(0,1fr) 88px 104px;column-gap:12px}
     .two{grid-template-columns:1fr}
     .ft-top{grid-template-columns:1fr}
-    .show-foot{display:block;padding-top:16px}
-    .show-foot .eyebrow{display:none}
-    .show-foot ol{flex-wrap:nowrap;gap:8px;margin:0 -16px;padding:0 16px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}
-    .show-foot ol::-webkit-scrollbar{display:none}
-    .show-foot li{flex:none;scroll-snap-align:start}
-    .show-foot li + li{border-left:0}
-    .show-foot a,.show-foot li:first-child a{min-height:44px;padding:0 14px;border-radius:var(--r-sm);background:rgba(255,255,255,.08);font-size:13px}
-    .show-foot a[aria-current="page"],.show-foot li:first-child a[aria-current="page"]{background:var(--white);color:var(--g-900)}
-    .show-foot a .lb{opacity:1;color:inherit;font-size:12px}
+    .show-foot{display:none}
+    .show .prev{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:8px;padding:0;border:0;background:none;font:inherit;font-size:14px;color:var(--white);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+    .arch-m{display:block;max-width:880px;margin:var(--band-y) auto 0;padding-top:20px}
+    .arch-m[hidden]{display:none}
+    .arch-m .eyebrow{margin:0 24px 4px}
+    .arch-m ol{margin:0;padding:0 24px;list-style:none}
+    .arch-m li a{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid var(--hair);font-size:16px;color:var(--ink);text-decoration:none}
+    .arch-m li:last-child a{border-bottom:0}
+    .arch-m li a .lb{font-size:13px;color:var(--sub)}
+    .arch-m li a[aria-current="page"]{color:var(--hana-text);font-weight:500}
   }
   /* ---------- 폭 560px 이하 (폰) ---------- */
   @media (max-width:560px){
-    /* 머리글 한 줄: 상징 | 보기 전환 | 카톡 받기 */
-    header.top .wrap{flex-wrap:nowrap;gap:8px;min-height:60px;padding-top:8px;padding-bottom:8px}
-    .site{gap:0}
-    .site-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-    .site .sym{width:22px;height:23px}
-    .views{margin-left:auto}
-    .views .seg a{min-height:36px;padding:0 10px;font-size:13px}
-    .kk-open.btn-sm{height:44px;gap:8px;padding:0 6px 0 12px;font-size:13px}
+    header.top .wrap{flex-wrap:wrap;gap:0 12px;min-height:0;padding-top:12px;padding-bottom:12px}
+    .site{font-size:14px;gap:8px}
+    .site .sym{width:19px;height:20px}
+    .kk-open{margin-left:auto}
     .kk-open .l{display:none}.kk-open .s{display:inline}
+    .views{order:2;width:100%;margin:12px 0 0}
+    .views .seg{display:flex;width:100%}
+    .views .seg li{flex:1}
+    .views .seg a{flex:1;min-height:36px}
     .hero .wrap{padding-top:24px;padding-bottom:24px}
     .hero .display{margin-top:16px}
     .hero .lede{display:none}
@@ -465,6 +469,11 @@
     .art .lb-main{font-size:21px}
     .show-date{margin-top:12px}
     .show-no{margin-top:4px;font-size:13px}
+    .show .prev{min-height:36px;margin-top:4px;font-size:13px}
+    .arch-m{padding-top:16px}
+    .arch-m .eyebrow{margin:0 16px 4px}
+    .arch-m ol{padding:0 16px}
+    .arch-m li a{min-height:44px;font-size:14px}
     .show-card{padding:16px}
     .key ol{margin-top:8px}
     .key li{grid-template-columns:28px minmax(0,1fr);gap:12px;padding:12px 0}
@@ -569,8 +578,39 @@
     .fig{padding:16px}
     .fig-h h3{font-size:16px}
     .tbl-card{padding:0 16px 8px}
-    .tbl-card:not(.all) table.dt.stg td.c:not(.cur){display:none}
-    .tbl-card .stg-all{display:inline-flex;margin-top:4px}
+    /* 추진 현황: 표 대신 제도마다 단계 진행 막대 */
+    .tbl-card .tw{display:none}
+    .tbl-card{padding:16px}
+    .sm-legend{display:flex;flex-wrap:wrap;gap:4px 12px;margin:0 0 4px;font-size:11px;color:var(--sub)}
+    .sm-legend .k{display:inline-flex;align-items:center;gap:4px}
+    .sm-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--rule);background:var(--surface)}
+    .sm-legend .done i{border-color:var(--hana);background:var(--hana)}
+    .sm-legend .cur i{border-color:var(--hana-text);background:var(--hana-text);box-shadow:0 0 0 3px var(--g-150)}
+    .sm-l{display:block;margin:0;padding:0;list-style:none}
+    .sm-i{padding:12px 0 16px;border-top:1px solid var(--hair)}
+    .sm-t{display:flex;flex-direction:column;margin:0}
+    .sm-t b{font-size:15px;font-weight:500;line-height:1.45;color:var(--ink)}
+    .sm-t span{font-size:12px;color:var(--sub)}
+    .sm-steps{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:12px 0 0;padding:0;list-style:none}
+    .sm-steps::before,.sm-steps::after{content:"";position:absolute;top:5px;left:12.5%;height:2px;background:var(--hair)}
+    .sm-steps::before{right:12.5%}
+    .sm-steps::after{width:calc(75% * var(--p));background:var(--hana)}
+    .sm-steps li{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .sm-steps i{display:block;width:12px;height:12px;border-radius:50%;border:2px solid var(--rule);background:var(--surface)}
+    .sm-steps .done i{border-color:var(--hana);background:var(--hana)}
+    .sm-steps .skip i{border-color:var(--hana);background:var(--surface)}
+    .sm-steps .cur i{border-color:var(--hana-text);background:var(--hana-text);box-shadow:0 0 0 4px var(--g-150)}
+    .sm-steps .st{margin-top:8px;font-size:11.5px;line-height:1.3;color:var(--sub)}
+    .sm-steps .cur .st{font-weight:500;color:var(--hana-text)}
+    .sm-steps .done .st,.sm-steps .skip .st{color:var(--ink)}
+    .sm-steps .dt{margin-top:2px;font-size:11px;color:var(--sub)}
+    .sm-steps .todo .dt{color:var(--mute)}
+    .sm-d{margin:12px 0 0;padding:8px 12px;border-radius:var(--r-sm);background:var(--paper)}
+    .sm-d div{display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;padding:4px 0;font-size:13px;line-height:1.55}
+    .sm-d dt{font-weight:500;color:var(--hana-text)}
+    .sm-d dd{margin:0;color:var(--body)}
+    .sm-d a{color:var(--ink);font-weight:500;text-underline-offset:2px}
+    .sm-d .pv{display:inline-block;font-size:11px;color:var(--sub)}
     details.more{padding:0 16px}
     details.more summary{min-height:52px;font-size:15px}
     .dv-paper .sec + .sec{margin-top:48px}
@@ -606,7 +646,6 @@
     table.dt.stg td.none{display:none}
     table.dt.stg td.cur{box-shadow:none}
   }
-  .stg-all{display:none}
   @media (min-width:561px){details.mk-src > summary{display:none}}
   @media (max-width:380px){
     .site{font-size:13px}
@@ -662,6 +701,7 @@
 <nav class="jump" id="jump" aria-label="섹션 바로가기" hidden><div class="wrap"><ul class="seg" id="jump-l"></ul></div></nav>
 
 <main id="issue"></main>
+<div class="wrap"><nav class="arch-m card" id="arch-m" aria-labelledby="h-archive-m" hidden></nav></div>
 
 <section class="cta-band" aria-labelledby="cta-t">
   <div class="wrap">
@@ -836,6 +876,7 @@
   function setView(v){
     $('band').classList.toggle('single', v === 'data');
     if (v === 'issue') setHero(`${meta.frequency_label} 발송 · ${meta.team}`, meta.name, meta.description);
+    $('arch-m').hidden = v === 'data';
     $('jump').hidden = v === 'data';
     $('v-issue').toggleAttribute('aria-current', v === 'issue');
     $('v-data').toggleAttribute('aria-current', v === 'data');
@@ -851,8 +892,7 @@
     const li = (i, f) => `<li><a href="#issue-${esc(i.date)}" ${i.date === current ? 'aria-current="page"' : ''}><span class="d num">${esc(f(i.date))}</span><span class="lb">${esc(label(i))}</span></a></li>`;
     $('side').innerHTML = `<p class="eyebrow" id="h-archive">발행 목록</p><ol>${list.map(i => li(i, mdw)).join('')}</ol>`;
     $('side').hidden = false;
-    const cur = $('side').querySelector('[aria-current="page"]'), ol = $('side').querySelector('ol');
-    if (cur && ol) ol.scrollLeft = Math.max(0, cur.parentElement.offsetLeft - 16);
+    $('arch-m').innerHTML = `<h2 class="eyebrow" id="h-archive-m">발행 목록</h2><ol>${list.map(i => li(i, dateLabel)).join('')}</ol>`;
   }
 
   // 폰에서 쓰는 짧은 섹션 이름: '캐피탈사 AX 동향' → '캐피탈사'
@@ -876,7 +916,8 @@
     $('head').innerHTML = `
       <p class="eyebrow">${latest ? '최신 호' : '지난 호'}</p>
       <h2 class="show-date num">${esc(dateLabel(is.issue_date))}</h2>
-      <p class="show-no">${esc(label(is))}</p>`;
+      <p class="show-no">${esc(label(is))}</p>
+      <button type="button" class="prev" data-to="arch-m">지난 호 보기</button>`;
     $('keys').innerHTML = `
       <section class="key" aria-labelledby="h-key">
         <h3 class="eyebrow" id="h-key">주요 소식</h3>
@@ -1119,6 +1160,7 @@
   let mkRt; window.addEventListener('resize', () => { clearTimeout(mkRt); mkRt = setTimeout(() => { if (market && mkAsof && $('mk') && !$('mk').hidden) drawAllSpark(); }, 150); });
 
   /* ---------------- 섹션 바로가기 ---------------- */
+  document.addEventListener('click', (e) => { const b = e.target.closest('.show .prev'); if (b) goTo(b.dataset.to); });
   let jumpObs = null;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   function goTo(id){ const t = $(id); if (t) t.scrollIntoView({behavior: reduce.matches ? 'auto' : 'smooth', block: 'start'}); }
@@ -1335,6 +1377,21 @@
       }).join('')}<td data-l="향후 계획">${nx}</td></tr>`;
     }).join('');
 
+    // 폰: 제도마다 단계 진행 막대(발표 → 예고·제출 → 확정 → 시행)
+    const stShort = (st) => st.replace(/^추진\s*/, '').replace(/·국회\s*/, '·');
+    const stageCards = items.map(it => {
+      const c = cur(it), ce = it.events.find(e => e.stage === c);
+      const nx = it.next ? (it.next.when === '시기 미정' ? `${esc(it.next.text)}(시기 미정)` : `${esc(it.next.when)} ${esc(it.next.text)}`) + (it.next.source_type === '언론' ? ' <span class="pv">언론 보도 기준</span>' : '') : '';
+      return `<li class="sm-i">
+        <p class="sm-t"><b>${esc(it.name)}</b><span>${esc(it.owner)}</span></p>
+        <ol class="sm-steps" style="--p:${(c - 1) / (stages.length - 1)}" aria-label="${esc(stages.length)}단계 중 ${c}단계: ${esc(stages[c - 1])}">${stages.map((st, i) => {
+          const e = it.events.find(e => e.stage === i + 1), k = i + 1 < c ? (e ? 'done' : 'skip') : i + 1 === c ? 'cur' : 'todo';
+          return `<li class="${k}"><i aria-hidden="true"></i><span class="st">${esc(stShort(st))}</span><span class="dt num">${e ? esc(q(e.date)) : '－'}</span></li>`;
+        }).join('')}</ol>
+        <dl class="sm-d"><div><dt>현재</dt><dd>${ce ? `<a href="${esc(ce.url)}">${esc(ce.text || stages[c - 1])}</a>` : esc(stages[c - 1])}</dd></div>${nx ? `<div><dt>다음</dt><dd>${nx}</dd></div>` : ''}</dl>
+      </li>`;
+    }).join('');
+
     const docs = [];
     sb.rounds.forEach(r => docs.push({org: '금융위원회', label: r.label, date: r.announced, url: r.url}));
     Object.entries(SRC).forEach(([url, m]) => docs.push({org: m.org, label: m.label, date: m.date, url, press: m.type === '언론'}));
@@ -1404,11 +1461,13 @@
 
       <div class="dv-paper band-y"><div class="wrap">
         <section class="sec" aria-labelledby="h-rg">
-          <div class="sec-head rv"><p class="eyebrow">규제·제도</p><h2 class="h2" id="h-rg">규제·제도 추진 현황</h2></div>
+          <div class="sec-head rv"><p class="eyebrow">규제·제도</p><h2 class="h2" id="h-rg">규제·제도 추진 현황</h2><p class="lede">제도마다 ${stages.map(st => esc(st)).join(' → ')} 중 어디까지 왔는지 보여 줍니다.</p></div>
           <div class="tbl-card card rv"><div class="tw"><table class="dt stg">
             <thead><tr><th>구분</th>${stages.map(st => `<th class="c">${esc(st)}</th>`).join('')}<th>향후 계획</th></tr></thead>
             <tbody>${stageRows}</tbody>
-          </table></div><button type="button" class="more-b stg-all" aria-expanded="false">단계별 일자 모두 보기</button></div>
+          </table></div>
+          <div class="sm-legend" aria-hidden="true"><span class="k done"><i></i>지난 단계</span><span class="k cur"><i></i>현재 단계</span><span class="k todo"><i></i>남은 단계</span><span class="k">－ 일자 미기재</span></div>
+          <ol class="sm-l">${stageCards}</ol></div>
           <p class="src2">음영은 현재 단계. '－'는 해당 단계 일자 미기재</p>
           <p class="src2">자료: 금융위원회 보도자료, 과학기술정보통신부 정책브리핑, 국가법령정보센터. '언론 보도 기준'은 공식 자료로 확인되지 않은 사항</p>
         </section>
@@ -1430,8 +1489,6 @@
           </table></div>
         </details>
       </div></div>`;
-    const sa = $('issue').querySelector('.stg-all');
-    if (sa) sa.addEventListener('click', () => { const on = sa.closest('.tbl-card').classList.toggle('all'); sa.setAttribute('aria-expanded', on); sa.textContent = on ? '현재 단계만 보기' : '단계별 일자 모두 보기'; });
     reveal($('issue'));
     extLinks($('issue'));
     // 정보 층 일러스트: 글자가 사이트 글꼴을 쓰도록 문서 안에 넣음
