@@ -16,11 +16,18 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="img/symbol.png">
 <link rel="canonical" href="https://axdaily.site/">
+<link rel="preload" href="fonts/Hana2-Regular-core.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Hana2-Medium-core.woff2" as="font" type="font/woff2" crossorigin>
 <style>[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <style>
-  @font-face{font-family:"Hana2";font-weight:400;font-display:swap;src:local("Hana2.0 R"),url("fonts/Hana2-Regular.woff2") format("woff2")}
-  @font-face{font-family:"Hana2";font-weight:500;font-display:swap;src:local("Hana2.0 M"),url("fonts/Hana2-Medium.woff2") format("woff2")}
-  @font-face{font-family:"Hana2";font-weight:700;font-display:swap;src:local("Hana2.0 B"),url("fonts/Hana2-Bold.woff2") format("woff2")}
+  /* 글꼴: 각 굵기마다 자주 쓰는 글자(KS X 1001 한글 2,350자·영문·기호, 약 210KB) 파일을 쓰고,
+     그 밖의 드문 한글 음절이 화면에 있을 때만 전체 파일(약 1.7MB)을 받음. 같은 범위면 나중에 선언한 쪽이 먼저 쓰임 */
+  @font-face{font-family:"Hana2";font-weight:400;font-display:swap;src:local("Hana2.0 R"),url("fonts/Hana2-Regular.woff2") format("woff2");unicode-range:U+AC00-D7A3}
+  @font-face{font-family:"Hana2";font-weight:500;font-display:swap;src:local("Hana2.0 M"),url("fonts/Hana2-Medium.woff2") format("woff2");unicode-range:U+AC00-D7A3}
+  @font-face{font-family:"Hana2";font-weight:700;font-display:swap;src:local("Hana2.0 B"),url("fonts/Hana2-Bold.woff2") format("woff2");unicode-range:U+AC00-D7A3}
+  @font-face{font-family:"Hana2";font-weight:400;font-display:swap;src:local("Hana2.0 R"),url("fonts/Hana2-Regular-core.woff2") format("woff2")}
+  @font-face{font-family:"Hana2";font-weight:500;font-display:swap;src:local("Hana2.0 M"),url("fonts/Hana2-Medium-core.woff2") format("woff2")}
+  @font-face{font-family:"Hana2";font-weight:700;font-display:swap;src:local("Hana2.0 B"),url("fonts/Hana2-Bold-core.woff2") format("woff2")}
   /* 디자인 토큰. 색은 하나금융그룹 CI 전용색(하나 그린 PANTONE 3288 C, 하나 레드 PANTONE 3546 C, 하나 블랙)과 그 명도 단계만 사용.
      레퍼런스(101 Gen AI)의 색 역할을 같은 상대 휘도의 하나 그린 단계로 옮김. 이 블록 밖에서는 16진수 색을 쓰지 않음 */
   :root{
@@ -69,6 +76,8 @@
   *{box-sizing:border-box}
   [hidden]{display:none!important}
   html,body{margin:0}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  a,button,summary{-webkit-tap-highlight-color:rgba(0,145,120,.12)}
   body{font-family:var(--font);color:var(--body);background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere}
   a{color:inherit}
   :focus-visible{outline:2px solid var(--hana-text);outline-offset:2px}
@@ -115,6 +124,7 @@
   .seg [aria-current="page"],.seg [aria-current="true"],.seg [aria-pressed="true"],.seg [aria-selected="true"]{background:var(--white);font-weight:500}
   .seg .c{font-size:13px;color:var(--sub);font-weight:400}
   .seg-sm{padding:4px}
+  .seg .s{display:none}
   .seg-sm a,.seg-sm button{min-height:32px;padding:0 12px;font-size:14px}
   /* 카드·타일 */
   .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md)}
@@ -157,9 +167,9 @@
   .show{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px 48px;padding:48px;border-radius:var(--r-xl);background:var(--grad-show);color:var(--white)}
   .show .orbs{position:absolute;z-index:-1;left:0;bottom:72px;width:min(520px,42%);height:auto;pointer-events:none}
   .show-l{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+  .show > *{min-width:0}
   .show-date{margin:24px 0 0;font-size:var(--fs-h3);line-height:1.3;font-weight:400;letter-spacing:-0.02em;color:var(--white)}
   .show-no{margin:8px 0 0;font-size:15px;color:var(--on-dark-2)}
-  .show .prev{display:none}
   .show-card{padding:32px;border-radius:var(--r-lg);background:var(--surface);color:var(--body)}
   .show-foot{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding-top:24px;border-top:1px solid var(--on-dark-line)}
   .show-foot ol{display:flex;flex-wrap:wrap;gap:4px 0;margin:0;padding:0;list-style:none}
@@ -183,7 +193,7 @@
   .jump .wrap{display:flex;justify-content:center;padding-top:12px;padding-bottom:12px}
   .jump .seg{overflow-x:auto;scrollbar-width:none}
   .jump .seg::-webkit-scrollbar{display:none}
-  section.sec,.news,.arch-m{scroll-margin-top:80px}
+  section.sec,.news{scroll-margin-top:80px}
 
   /* ---------- 주요 시장 지표 ---------- */
   .mk-panel{padding:32px 40px 24px;border-radius:var(--r-lg)}
@@ -250,7 +260,6 @@
   .src a{color:var(--ink);text-decoration-color:var(--rule);text-underline-offset:3px}
   .src a:hover{text-decoration-color:currentColor}
   .more-b{display:none}
-  .arch-m{display:none}
 
   /* ---------- 구독 띠 + 푸터 ---------- */
   .cta-band{position:relative;padding-top:clamp(96px, 12vw, 200px);background:linear-gradient(180deg, var(--surface) 0 76%, var(--g-950) 76%)}
@@ -276,7 +285,7 @@
   .ft-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px 64px;align-items:start}
   .ft-name{margin:0;font-size:24px;line-height:1.3;font-weight:400;color:var(--white)}
   .ft-desc{margin:12px 0 0;max-width:560px;font-size:15px;line-height:1.7}
-  .ft-meta{margin:0;display:grid;grid-template-columns:auto auto;gap:8px 24px;font-size:14px}
+  .ft-meta{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 24px;font-size:14px}
   .ft-meta dt{color:var(--on-dark-3)}
   .ft-meta dd{margin:0;color:var(--white)}
   .ft-meta a{color:var(--white);text-underline-offset:3px}
@@ -329,7 +338,7 @@
   .stat b{display:block;font-size:var(--fs-h3);line-height:1.2;font-weight:400;letter-spacing:-0.02em;color:var(--white);font-variant-numeric:tabular-nums}
   .stat b small{margin-left:4px;font-size:17px;letter-spacing:0}
   .stat span{display:block;margin-top:4px;font-size:14px;line-height:1.5;color:var(--on-dark-2)}
-  .fn1{margin:16px 0 0;font-size:13px;line-height:1.7;color:var(--on-dark-3)}
+  .fn1{margin:16px 0 0;font-size:13px;line-height:1.7;color:var(--on-dark-2)}
   .figs{display:grid;gap:20px}
   .fig{padding:32px 40px}
   .fig-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
@@ -342,6 +351,9 @@
   .chart{position:relative;margin-top:8px}
   .chart svg{display:block;width:100%;height:auto;overflow:visible}
   .chart text{font-family:var(--font)}
+  .ann-l{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:12px;line-height:1.5;color:var(--body-2)}
+  .ann-l li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;align-items:start}
+  .ann-l .n{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--hana-text);color:var(--white);font-size:11px;font-weight:700}
   .chart .col:focus{outline:none}
   .chart .col:focus-visible .hit{stroke:var(--hana-text);stroke-width:2}
   .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
@@ -402,7 +414,7 @@
 
   /* ---------- 폭 1024px 이하 ---------- */
   @media (max-width:1024px){
-    .show{grid-template-columns:1fr;padding:40px}
+    .show{grid-template-columns:minmax(0,1fr);padding:40px}
     .show .orbs{left:auto;right:-32px;top:-40px;bottom:auto;width:320px}
     .dv-split{grid-template-columns:1fr}
     .art{max-width:624px;width:100%;margin:0 auto}
@@ -420,29 +432,27 @@
     .wl-r{grid-template-columns:minmax(0,1fr) 88px 104px;column-gap:12px}
     .two{grid-template-columns:1fr}
     .ft-top{grid-template-columns:1fr}
-    .arch-m{display:block;max-width:880px;margin:var(--band-y) auto 0}
-    .arch-m[hidden]{display:none}
-    .arch-m ol{margin:0;padding:0 24px;list-style:none}
-    .arch-m li a{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid var(--hair);font-size:16px;color:var(--ink);text-decoration:none}
-    .arch-m li:last-child a{border-bottom:0}
-    .arch-m li a .lb{font-size:13px;color:var(--sub)}
-    .arch-m li a[aria-current="page"]{color:var(--hana-text);font-weight:500}
-    .arch-m{padding-top:20px}
-    .arch-m .eyebrow{margin:0 24px 4px}
-    .show-foot{display:none}
-    .show .prev{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:8px;padding:0;border:0;background:none;font:inherit;font-size:14px;color:var(--white);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+    .show-foot{display:block;padding-top:16px}
+    .show-foot .eyebrow{display:none}
+    .show-foot ol{flex-wrap:nowrap;gap:8px;margin:0 -16px;padding:0 16px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}
+    .show-foot ol::-webkit-scrollbar{display:none}
+    .show-foot li{flex:none;scroll-snap-align:start}
+    .show-foot li + li{border-left:0}
+    .show-foot a,.show-foot li:first-child a{min-height:44px;padding:0 14px;border-radius:var(--r-sm);background:rgba(255,255,255,.08);font-size:13px}
+    .show-foot a[aria-current="page"],.show-foot li:first-child a[aria-current="page"]{background:var(--white);color:var(--g-900)}
+    .show-foot a .lb{opacity:1;color:inherit;font-size:12px}
   }
   /* ---------- 폭 560px 이하 (폰) ---------- */
   @media (max-width:560px){
-    header.top .wrap{flex-wrap:wrap;gap:0 12px;min-height:0;padding-top:12px;padding-bottom:12px}
-    .site{font-size:14px;gap:8px}
-    .site .sym{width:19px;height:20px}
-    .kk-open{margin-left:auto}
+    /* 머리글 한 줄: 상징 | 보기 전환 | 카톡 받기 */
+    header.top .wrap{flex-wrap:nowrap;gap:8px;min-height:60px;padding-top:8px;padding-bottom:8px}
+    .site{gap:0}
+    .site-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+    .site .sym{width:22px;height:23px}
+    .views{margin-left:auto}
+    .views .seg a{min-height:36px;padding:0 10px;font-size:13px}
+    .kk-open.btn-sm{height:44px;gap:8px;padding:0 6px 0 12px;font-size:13px}
     .kk-open .l{display:none}.kk-open .s{display:inline}
-    .views{order:2;width:100%;margin:12px 0 0}
-    .views .seg{display:flex;width:100%}
-    .views .seg li{flex:1}
-    .views .seg a{flex:1}
     .hero .wrap{padding-top:24px;padding-bottom:24px}
     .hero .display{margin-top:16px}
     .hero .lede{display:none}
@@ -455,15 +465,19 @@
     .art .lb-main{font-size:21px}
     .show-date{margin-top:12px}
     .show-no{margin-top:4px;font-size:13px}
-    .show .prev{min-height:36px;margin-top:4px;font-size:13px}
     .show-card{padding:16px}
     .key ol{margin-top:8px}
     .key li{grid-template-columns:28px minmax(0,1fr);gap:12px;padding:12px 0}
     .key li .tile{width:28px;height:28px;font-size:14px}
     .key li p{padding-top:2px;font-size:15px;line-height:1.55}
-    .jump .wrap{padding:8px}
-    .jump .seg{justify-content:flex-start}
-    .jump .seg a{min-height:36px;padding:0 12px;font-size:14px}
+    /* 바로가기: 짧은 이름으로 한 줄에 */
+    .jump .wrap{padding:6px 8px}
+    .jump .seg{display:flex;width:100%;overflow:visible}
+    .jump .seg li{flex:1 1 auto}
+    .jump .seg a{flex:1;min-height:40px;padding:0 6px;font-size:13px;gap:4px}
+    .jump .seg .c,.tabs .seg .c{font-size:11px}
+    .jump .seg .l,.tabs .seg .l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+    .jump .seg .s,.tabs .seg .s{display:inline}
     .eyebrow{font-size:12px}
     .sec-head .h2{margin-top:12px}
     .sec-head .lede{margin-top:8px;font-size:15px}
@@ -472,8 +486,7 @@
     .news-box .sec-head{margin-bottom:20px}
     .tabs{margin-bottom:16px}
     .tabs .seg{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);width:100%}
-    .tabs .seg button{flex-direction:column;gap:0;min-height:52px;padding:6px 4px;font-size:12.5px;line-height:1.3;white-space:normal;text-align:center}
-    .tabs .seg button .c{margin:2px 0 0;font-size:11px}
+    .tabs .seg button{gap:4px;min-height:44px;padding:0 4px;font-size:14px}
     .sec-b{gap:8px}
     article.item{padding:16px}
     .item h3{font-size:16px;line-height:1.5}
@@ -488,16 +501,12 @@
     .more-b{display:inline-flex;align-items:center;gap:8px;min-height:40px;margin-top:0;padding:0;border:0;background:none;font:inherit;font-size:14px;font-weight:500;color:var(--hana-text);cursor:pointer}
     .more-b::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg)}
     article.item.open .more-b::after{transform:translateY(2px) rotate(-135deg)}
-    .arch-m ol{padding:0 16px}
-    .arch-m li a{min-height:44px;font-size:14px}
-    .arch-m .eyebrow{margin:0 16px 4px}
-    .arch-m{padding-top:16px}
     /* 시장 지표: 두 칸 목록 유지, 칸마다 [미니 추이 | 현재값·전일 대비], 지표명은 칸 위 한 줄 */
     .mk-panel{padding:16px 16px 8px}
     .mk-bar{flex-wrap:nowrap;gap:8px;font-size:12px}
     .mk-bar #mk-range{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .mk-bar .seg{flex:none}
-    .mk-bar .seg button{min-height:32px;padding:0 8px;font-size:12px}
+    .mk-bar .seg button{min-height:36px;min-width:40px;padding:0 6px;font-size:12px}
     ul.wl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:16px}
     .wl-r{grid-template-columns:54px minmax(0,1fr);grid-template-areas:"n n" "s v";column-gap:12px;row-gap:8px;align-items:center;padding:12px 0}
     .wl-s{grid-area:s}
@@ -508,6 +517,9 @@
     .wl-n .s{display:inline;margin-top:0;font-size:10.5px;white-space:nowrap}
     .wl-n .s:not(:last-child)::after{content:" ·"}
     .wl-v{grid-area:v;text-align:left}
+    ul.wl .wl-r.ev{grid-column:1 / -1;grid-template-columns:minmax(0,1fr) auto}
+    .wl-r.ev .wl-v{text-align:right}
+    .wl-r.ev .wl-n .s{display:inline}
     .wl-v .v{font-size:16px;line-height:1.3;letter-spacing:-0.01em}
     .wl-v .ch{font-size:11.5px;line-height:1.35}
     .wl-h{margin-top:16px;font-size:12px}
@@ -524,6 +536,7 @@
     .cta-band{padding-top:88px}
     .cta-band .wrap{padding:0 8px}
     .cta-card{min-height:0;padding:24px 20px;border-radius:var(--r-lg)}
+    .cta-card .circuit{display:none}
     .cta-card .h2{margin-top:12px}
     .cta-card .lede{margin-top:8px;font-size:14px}
     .cta-card .btn{width:100%;height:48px;justify-content:space-between;margin-top:20px;font-size:15px}
@@ -535,12 +548,13 @@
     .ft-meta{font-size:13px;gap:4px 16px}
     .wordmark{margin-top:32px}
     .ft-bot{margin-top:16px;padding-top:16px;font-size:12px}
+    .ft-bot p:last-child{display:none}
     /* 신청 창 */
     .kk-in{padding:24px 20px}
     .kk h2{font-size:24px}
     /* 제도 현황 */
     .dv-split{gap:24px}
-    .art{width:min(100%,280px)}
+    .art{width:min(100%,240px)}
     .dv-r .h2{margin-top:12px}
     .dv-r .lede{margin-top:8px;font-size:14px}
     .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:20px}
@@ -566,7 +580,7 @@
     .sched .card .tile{grid-row:span 2;width:40px;height:40px}
     .sched .when{margin:0;font-size:16px}
     .sched .what{margin-top:2px;font-size:14px;line-height:1.6}
-    .accent-card{grid-column:auto;padding:20px}
+    .accent-card{display:none}
     .accent-card p{font-size:18px}
     .accent-card .btn{width:100%;height:48px;justify-content:space-between;margin-top:16px;font-size:15px}
     .accent-card .btn .arw{width:32px;height:32px}
@@ -582,11 +596,13 @@
     table.dt.stg thead{display:none}
     table.dt.stg tr{display:block;padding:8px 0;border-bottom:1px solid var(--hair)}
     table.dt.stg tr:last-child{border-bottom:0}
-    table.dt.stg td,table.dt.stg td:first-child,table.dt.stg td:last-child,table.dt.stg td.c{display:block;min-width:0;border:0;padding:2px 0 2px 80px;position:relative;text-align:left;white-space:normal}
-    table.dt.stg td:first-child{padding-left:0;margin-bottom:2px}
+    table.dt.stg td,table.dt.stg td:last-child,table.dt.stg td.c{display:grid;grid-template-columns:84px minmax(0,1fr);column-gap:8px;align-items:baseline;min-width:0;border:0;padding:2px 0;text-align:left;white-space:normal}
+    table.dt.stg td:first-child{display:block;min-width:0;border:0;padding:0;text-align:left}
+    table.dt.stg td:first-child{margin-bottom:2px}
     table.dt.stg td:first-child b{font-size:13px}
-    table.dt.stg td[data-l]::before{content:attr(data-l);position:absolute;left:0;top:2px;width:72px;font-weight:400;color:var(--sub)}
-    table.dt.stg td.c .s{display:inline;margin-left:4px}
+    table.dt.stg td[data-l]::before{content:attr(data-l);font-weight:400;color:var(--sub)}
+    table.dt.stg td[data-l] > *{grid-column:2}
+    table.dt.stg td.c .s{display:block}
     table.dt.stg td.none{display:none}
     table.dt.stg td.cur{box-shadow:none}
   }
@@ -613,7 +629,7 @@
 <div class="hero-zone">
 <header class="top">
   <div class="wrap">
-    <a class="site" id="site" href="#"><img class="sym" src="img/symbol.png" width="23" height="24" alt="">Hanacapital Newsletter</a>
+    <a class="site" id="site" href="#"><img class="sym" src="img/symbol.png" width="23" height="24" alt=""><span class="site-t">Hanacapital Newsletter</span></a>
     <nav class="views" aria-label="보기"><ul class="seg seg-sm">
       <li><a id="v-issue" href="#">발행호</a></li>
       <li><a id="v-data" href="#data">제도·지정 현황</a></li>
@@ -646,7 +662,6 @@
 <nav class="jump" id="jump" aria-label="섹션 바로가기" hidden><div class="wrap"><ul class="seg" id="jump-l"></ul></div></nav>
 
 <main id="issue"></main>
-<div class="wrap"><nav class="arch-m card" id="arch-m" aria-labelledby="h-archive-m" hidden></nav></div>
 
 <section class="cta-band" aria-labelledby="cta-t">
   <div class="wrap">
@@ -777,6 +792,7 @@
     calendar: SV('<path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/>'),
   };
   const ARW = `<span class="arw">${ICON.arrow}</span>`;
+  const extLinks = (root) => root.querySelectorAll('a[href^="http"]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
   // 나타나기: 화면에 들어올 때 한 번
   const rvObs = 'IntersectionObserver' in window ? new IntersectionObserver((ents) => { for (const en of ents) if (en.isIntersecting) { en.target.classList.add('in'); rvObs.unobserve(en.target); } }, {rootMargin: '0px 0px -8% 0px'}) : null;
   const reveal = (root) => root.querySelectorAll('.rv:not(.in)').forEach(el => rvObs ? rvObs.observe(el) : el.classList.add('in'));
@@ -820,7 +836,6 @@
   function setView(v){
     $('band').classList.toggle('single', v === 'data');
     if (v === 'issue') setHero(`${meta.frequency_label} 발송 · ${meta.team}`, meta.name, meta.description);
-    $('arch-m').hidden = v === 'data';
     $('jump').hidden = v === 'data';
     $('v-issue').toggleAttribute('aria-current', v === 'issue');
     $('v-data').toggleAttribute('aria-current', v === 'data');
@@ -836,9 +851,12 @@
     const li = (i, f) => `<li><a href="#issue-${esc(i.date)}" ${i.date === current ? 'aria-current="page"' : ''}><span class="d num">${esc(f(i.date))}</span><span class="lb">${esc(label(i))}</span></a></li>`;
     $('side').innerHTML = `<p class="eyebrow" id="h-archive">발행 목록</p><ol>${list.map(i => li(i, mdw)).join('')}</ol>`;
     $('side').hidden = false;
-    $('arch-m').innerHTML = `<h2 class="eyebrow" id="h-archive-m">발행 목록</h2><ol>${list.map(i => li(i, dateLabel)).join('')}</ol>`;
+    const cur = $('side').querySelector('[aria-current="page"]'), ol = $('side').querySelector('ol');
+    if (cur && ol) ol.scrollLeft = Math.max(0, cur.parentElement.offsetLeft - 16);
   }
 
+  // 폰에서 쓰는 짧은 섹션 이름: '캐피탈사 AX 동향' → '캐피탈사'
+  const shortT = (t) => String(t).replace(/\s*(AX\s*)?동향$/, '') || t;
   function selectTab(id){
     document.querySelectorAll('#news [role="tab"]').forEach(t => { const on = t.dataset.tab === id; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
     document.querySelectorAll('#news [role="tabpanel"]').forEach(p => { p.hidden = p.id !== `s-${id}`; if (!p.hidden) reveal(p); });
@@ -858,8 +876,7 @@
     $('head').innerHTML = `
       <p class="eyebrow">${latest ? '최신 호' : '지난 호'}</p>
       <h2 class="show-date num">${esc(dateLabel(is.issue_date))}</h2>
-      <p class="show-no">${esc(label(is))}</p>
-      <button type="button" class="prev" data-to="arch-m">지난 호 보기</button>`;
+      <p class="show-no">${esc(label(is))}</p>`;
     $('keys').innerHTML = `
       <section class="key" aria-labelledby="h-key">
         <h3 class="eyebrow" id="h-key">주요 소식</h3>
@@ -874,7 +891,7 @@
       <div class="news band-y" id="news">
         <div class="news-box">
           <div class="sec-head rv"><p class="eyebrow"><span class="num">${total}건</span></p><h2 class="h2" id="h-news">이번 호 AX 동향</h2></div>
-          <div class="tabs"><div class="seg" role="tablist" aria-labelledby="h-news">${is.sections.map(sec => `<button type="button" role="tab" id="t-${esc(sec.id)}" aria-controls="s-${esc(sec.id)}" aria-selected="${sec.id === first}" tabindex="${sec.id === first ? 0 : -1}" data-tab="${esc(sec.id)}">${esc(sec.title)}<span class="c num">${sec.items.length}건</span></button>`).join('')}</div></div>
+          <div class="tabs"><div class="seg" role="tablist" aria-labelledby="h-news">${is.sections.map(sec => `<button type="button" role="tab" id="t-${esc(sec.id)}" aria-controls="s-${esc(sec.id)}" aria-selected="${sec.id === first}" tabindex="${sec.id === first ? 0 : -1}" data-tab="${esc(sec.id)}" data-full="${esc(sec.title)}" data-short="${esc(shortT(sec.title))}" data-n="${sec.items.length}"><span class="l">${esc(sec.title)}</span><span class="s" aria-hidden="true">${esc(shortT(sec.title))}</span><span class="c num">${sec.items.length}건</span></button>`).join('')}</div></div>
           ${is.sections.map(sec => `
           <section class="sec tabp${sec.items.length ? '' : ' zero'}" id="s-${esc(sec.id)}" role="tabpanel" aria-labelledby="t-${esc(sec.id)}" tabindex="-1"${sec.id === first ? '' : ' hidden'}>
             <h3 class="sr" id="h-${esc(sec.id)}">${esc(sec.title)}</h3>
@@ -895,6 +912,7 @@
       });
     });
     reveal($('issue'));
+    extLinks($('issue'));
   }
 
   async function showIssue(date){
@@ -1023,7 +1041,7 @@
         const sp = k ? Math.round((r.last.v - k.v) * 1000) / 10 : null;
         sub = [`${md(r.last.d)} 발행`, mp != null ? `민평 대비 ${sgnBp(mp)}` : k ? `국고채 3년 대비 ${sgnBp(sp)}` : ''];
       } else { nt = r.ind.note || ''; sub = [r.last.d !== refDate ? md(r.last.d) : '']; }
-      return `<li class="wl-r">
+      return `<li class="wl-r${ev ? ' ev' : ''}">
         <div class="wl-n"><span class="nm">${esc(r.ind.label)}</span>${nt ? `<span class="s nt">${esc(nt)}</span>` : ''}${sub.filter(Boolean).map(x => `<span class="s">${esc(x)}</span>`).join(' ')}</div>
         <div class="wl-s" data-id="${esc(r.ind.id)}"><span class="pc"></span></div>
         <div class="wl-v"><span class="v num">${esc(fmtV(r.ind, r.last.v))}</span>${chgHtml(chg(r.ind, r.prev && r.prev.v, r.last.v), ev ? '직전 발행 대비 ' : '전일 대비 ')}</div>
@@ -1052,6 +1070,7 @@
     </div>`;
     sec.hidden = false;
     reveal(sec);
+    extLinks(sec);
     drawAllSpark();
     sec.querySelectorAll('.per button').forEach(b => b.addEventListener('click', () => {
       mkPer = +b.dataset.per;
@@ -1114,8 +1133,8 @@
   function renderJump(){
     const mk = $('mk'), news = $('news');
     const items = [];
-    if (mk && !mk.hidden) items.push(`<li><a href="#" data-to="mk">주요 시장 지표</a></li>`);
-    if (news) news.querySelectorAll('[role="tab"]').forEach(t => items.push(`<li><a href="#" data-to="news" data-tab="${esc(t.dataset.tab)}">${esc(t.firstChild.textContent)} <span class="c num">${esc(t.querySelector('.c').textContent)}</span></a></li>`));
+    if (mk && !mk.hidden) items.push(`<li><a href="#" data-to="mk"><span class="l">주요 시장 지표</span><span class="s" aria-hidden="true">시장 지표</span></a></li>`);
+    if (news) news.querySelectorAll('[role="tab"]').forEach(t => items.push(`<li><a href="#" data-to="news" data-tab="${esc(t.dataset.tab)}"><span class="l">${esc(t.dataset.full)}</span><span class="s" aria-hidden="true">${esc(t.dataset.short)}</span> <span class="c num">${esc(t.dataset.n)}건</span></a></li>`));
     $('jump-l').innerHTML = items.join('');
     $('jump-l').querySelectorAll('a').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); if (a.dataset.tab) selectTab(a.dataset.tab); goTo(a.dataset.to); }));
     if (jumpObs) jumpObs.disconnect();
@@ -1124,7 +1143,6 @@
     }, {rootMargin: '-64px 0px -70% 0px'});
     [mk, news].filter(x => x && !x.hidden).forEach(x => jumpObs.observe(x));
   }
-  document.addEventListener('click', (e) => { const b = e.target.closest('.show .prev'); if (b) goTo(b.dataset.to); });
 
   /* ---------------- 제도·지정 현황 ---------------- */
   const CAT_COLOR = {A: CV.hana, B: CV.hanaLight};
@@ -1195,7 +1213,8 @@
     })(0, 0, 0);
     const placed = best || items.map((opts, i) => ({...opts[0], row: i}));
     const maxRow = Math.max(0, ...placed.map(p => p.row));
-    T = ann.length ? (maxRow + 1) * rowH + 16 : 20;
+    // 폰: 표기 글자 대신 번호 표식, 내용은 그림 아래 목록으로
+    T = narrow ? (ann.length ? 30 : 20) : ann.length ? (maxRow + 1) * rowH + 16 : 20;
     base = T + PH;
 
     // 눈금
@@ -1204,7 +1223,15 @@
       txt(L - 8, y(v) + 4, v, {'text-anchor': 'end'});
     }
     // 제도 변화 세로선 (막대 뒤)
-    for (const p of placed) {
+    if (narrow) ann.forEach((a, i) => {
+      const x = xDate(a.date);
+      el('line', {x1: x, x2: x, y1: 20, y2: base, stroke: CV.rule, 'stroke-width': 1});
+      el('rect', {x: x - 4, y: base - 4, width: 8, height: 8, fill: CV.hanaText});
+      el('circle', {cx: x, cy: 11, r: 9, fill: CV.hanaText});
+      const t = txt(x, 15, i + 1, {'text-anchor': 'middle', fill: CV.white, 'font-size': 11, 'font-weight': 700});
+      const title = document.createElementNS(SVGNS, 'title'); title.textContent = `${ymd(a.date)} ${a.text}`; t.appendChild(title);
+    });
+    if (!narrow) for (const p of placed) {
       const ty = T - 14 - p.row * rowH;
       el('line', {x1: p.x, x2: p.x, y1: ty + 4, y2: T, stroke: CV.sub, 'stroke-width': 1});
       el('line', {x1: p.x, x2: p.x, y1: T, y2: base, stroke: CV.rule, 'stroke-width': 1});
@@ -1218,7 +1245,7 @@
       const [yy, mm] = start.split('-').map(Number);
       const m = ((mm - 1 + i) % 12) + 1, yr = yy + Math.floor((mm - 1 + i) / 12);
       const cx = L + i * slot + slot / 2;
-      if (m === 1 || i === 0) { el('line', {x1: L + i * slot, x2: L + i * slot, y1: base, y2: base + 22, stroke: CV.sub, 'stroke-width': 1}); txt(L + i * slot + 4, base + 34, `${yr}년`, {fill: CV.ink, 'font-weight': 700}); }
+      if (m === 1 || (i === 0 && !(narrow && 13 - mm < 6))) { el('line', {x1: L + i * slot, x2: L + i * slot, y1: base, y2: base + 22, stroke: CV.sub, 'stroke-width': 1}); txt(L + i * slot + 4, base + 34, `${yr}년`, {fill: CV.ink, 'font-weight': 700, 'font-size': narrow ? 12 : 13}); }
       if (!narrow ? (m % 3 === 1) : (m === 7)) txt(cx, base + 16, `${m}월`, {'text-anchor': 'middle'});
     }
 
@@ -1266,6 +1293,11 @@
     const H = base + 44;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svg.setAttribute('width', W); svg.setAttribute('height', H);
+    if (narrow && ann.length) {
+      const ol = document.createElement('ol'); ol.className = 'ann-l';
+      ol.innerHTML = ann.map((a, i) => `<li><span class="n num" aria-hidden="true">${i + 1}</span><span><span class="num">${esc(ymd(a.date))}</span> ${esc(a.text)}</span></li>`).join('');
+      box.appendChild(ol);
+    }
   }
 
   function renderData(){
@@ -1401,6 +1433,7 @@
     const sa = $('issue').querySelector('.stg-all');
     if (sa) sa.addEventListener('click', () => { const on = sa.closest('.tbl-card').classList.toggle('all'); sa.setAttribute('aria-expanded', on); sa.textContent = on ? '현재 단계만 보기' : '단계별 일자 모두 보기'; });
     reveal($('issue'));
+    extLinks($('issue'));
     // 정보 층 일러스트: 글자가 사이트 글꼴을 쓰도록 문서 안에 넣음
     fetch('img/layers.svg').then(r => r.ok ? r.text() : '').then(t => { const a = $('art'); if (a && t) a.innerHTML = t; }).catch(() => {});
 
