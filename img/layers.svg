@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 624 520" width="624" height="520" role="img" aria-label="자료 수집, 지정 현황, 규제 추진, 향후 일정이 모여 AX Daily가 되는 구조">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#009178"/><stop offset="1" stop-color="#007B66"/></linearGradient>
+    <radialGradient id="hi" cx=".18" cy=".1" r=".7"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".18"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="624" height="520" fill="url(#bg)"/>
+  <rect width="624" height="520" fill="url(#hi)"/>
+    <path d="M102.0,300.0 L312.0,405.0 L312.0,423.0 L102.0,318.0Z" fill="#FFFFFF" fill-opacity="0.14"/>
+  <path d="M312.0,405.0 L522.0,300.0 L522.0,318.0 L312.0,423.0Z" fill="#FFFFFF" fill-opacity="0.07"/>
+  <path d="M312.0,195.0 L522.0,300.0 L312.0,405.0 L102.0,300.0Z" fill="#FFFFFF" fill-opacity="0.2" stroke="#FFFFFF" stroke-opacity=".5"/>
+  <path d="M207.0,247.5 L417.0,352.5 M417.0,247.5 L207.0,352.5" stroke="#FFFFFF" stroke-opacity=".22" stroke-dasharray="3 4"/>
+  <g id="tile-back">
+  <path d="M242.0,231.5 L312.0,266.5 L312.0,282.5 L242.0,247.5Z" fill="#EBF6F4" fill-opacity="1"/>
+  <path d="M312.0,266.5 L382.0,231.5 L382.0,247.5 L312.0,282.5Z" fill="#D6EDE9" fill-opacity="1"/>
+  <path d="M312.0,196.5 L382.0,231.5 L312.0,266.5 L242.0,231.5Z" fill="#FFFFFF" fill-opacity="1"/>
+  <path d="M286.0,215.5 L312.0,228.5 L312.0,244.5 L286.0,231.5Z" fill="#009178" fill-opacity="1"/>
+  <path d="M312.0,228.5 L338.0,215.5 L338.0,231.5 L312.0,244.5Z" fill="#007B66" fill-opacity="1"/>
+  <path d="M312.0,202.5 L338.0,215.5 L312.0,228.5 L286.0,215.5Z" fill="#73C2B5" fill-opacity="1"/>
+  </g>
+  <g id="tile-left">
+  <path d="M137.0,284.0 L207.0,319.0 L207.0,335.0 L137.0,300.0Z" fill="#EBF6F4" fill-opacity="1"/>
+  <path d="M207.0,319.0 L277.0,284.0 L277.0,300.0 L207.0,335.0Z" fill="#D6EDE9" fill-opacity="1"/>
+  <path d="M207.0,249.0 L277.0,284.0 L207.0,319.0 L137.0,284.0Z" fill="#FFFFFF" fill-opacity="1"/>
+  <path d="M181.0,274.0 L207.0,287.0 L207.0,297.0 L181.0,284.0Z" fill="#007B66" fill-opacity="1"/>
+  <path d="M207.0,287.0 L233.0,274.0 L233.0,284.0 L207.0,297.0Z" fill="#00473B" fill-opacity="1"/>
+  <path d="M207.0,261.0 L233.0,274.0 L207.0,287.0 L181.0,274.0Z" fill="#009178" fill-opacity="1"/>
+  </g>
+  <g id="tile-right">
+  <path d="M347.0,284.0 L417.0,319.0 L417.0,335.0 L347.0,300.0Z" fill="#EBF6F4" fill-opacity="1"/>
+  <path d="M417.0,319.0 L487.0,284.0 L487.0,300.0 L417.0,335.0Z" fill="#D6EDE9" fill-opacity="1"/>
+  <path d="M417.0,249.0 L487.0,284.0 L417.0,319.0 L347.0,284.0Z" fill="#FFFFFF" fill-opacity="1"/>
+  <path d="M391.0,274.0 L417.0,287.0 L417.0,297.0 L391.0,284.0Z" fill="#007B66" fill-opacity="1"/>
+  <path d="M417.0,287.0 L443.0,274.0 L443.0,284.0 L417.0,297.0Z" fill="#00473B" fill-opacity="1"/>
+  <path d="M417.0,261.0 L443.0,274.0 L417.0,287.0 L391.0,274.0Z" fill="#009178" fill-opacity="1"/>
+  </g>
+  <g id="tile-front">
+  <path d="M242.0,336.5 L312.0,371.5 L312.0,387.5 L242.0,352.5Z" fill="#EBF6F4" fill-opacity="1"/>
+  <path d="M312.0,371.5 L382.0,336.5 L382.0,352.5 L312.0,387.5Z" fill="#D6EDE9" fill-opacity="1"/>
+  <path d="M312.0,301.5 L382.0,336.5 L312.0,371.5 L242.0,336.5Z" fill="#FFFFFF" fill-opacity="1"/>
+  <path d="M284.0,330.5 L312.0,344.5 L312.0,350.5 L284.0,336.5Z" fill="#009178" fill-opacity="1"/>
+  <path d="M312.0,344.5 L340.0,330.5 L340.0,336.5 L312.0,350.5Z" fill="#007B66" fill-opacity="1"/>
+  <path d="M312.0,316.5 L340.0,330.5 L312.0,344.5 L284.0,330.5Z" fill="#A6D8D0" fill-opacity="1"/>
+  <path d="M284.0,321.5 L312.0,335.5 L312.0,341.5 L284.0,327.5Z" fill="#009178" fill-opacity="1"/>
+  <path d="M312.0,335.5 L340.0,321.5 L340.0,327.5 L312.0,341.5Z" fill="#007B66" fill-opacity="1"/>
+  <path d="M312.0,307.5 L340.0,321.5 L312.0,335.5 L284.0,321.5Z" fill="#A6D8D0" fill-opacity="1"/>
+  <path d="M284.0,312.5 L312.0,326.5 L312.0,332.5 L284.0,318.5Z" fill="#009178" fill-opacity="1"/>
+  <path d="M312.0,326.5 L340.0,312.5 L340.0,318.5 L312.0,332.5Z" fill="#007B66" fill-opacity="1"/>
+  <path d="M312.0,298.5 L340.0,312.5 L312.0,326.5 L284.0,312.5Z" fill="#73C2B5" fill-opacity="1"/>
+  </g>
+  <path d="M312,208 V202.5" stroke="#FFFFFF" stroke-opacity=".55" stroke-dasharray="2 4"/>
+  <path d="M228.0,160.0 L312.0,202.0 L312.0,208.0 L228.0,166.0Z" fill="#FFFFFF" fill-opacity="0.385"/>
+  <path d="M312.0,202.0 L396.0,160.0 L396.0,166.0 L312.0,208.0Z" fill="#FFFFFF" fill-opacity="0.275"/>
+  <path d="M312.0,118.0 L396.0,160.0 L312.0,202.0 L228.0,160.0Z" fill="#FFFFFF" fill-opacity="0.55"/>
+  <path d="M228.0,140.0 L312.0,182.0 L312.0,188.0 L228.0,146.0Z" fill="#FFFFFF" fill-opacity="0.5249999999999999"/>
+  <path d="M312.0,182.0 L396.0,140.0 L396.0,146.0 L312.0,188.0Z" fill="#FFFFFF" fill-opacity="0.375"/>
+  <path d="M312.0,98.0 L396.0,140.0 L312.0,182.0 L228.0,140.0Z" fill="#FFFFFF" fill-opacity="0.75"/>
+  <path d="M228.0,120.0 L312.0,162.0 L312.0,168.0 L228.0,126.0Z" fill="#FFFFFF" fill-opacity="0.6649999999999999"/>
+  <path d="M312.0,162.0 L396.0,120.0 L396.0,126.0 L312.0,168.0Z" fill="#FFFFFF" fill-opacity="0.475"/>
+  <path d="M312.0,78.0 L396.0,120.0 L312.0,162.0 L228.0,120.0Z" fill="#FFFFFF" fill-opacity="0.95"/>
+    <path d="M145.0,288.0 L107.0,262.0" stroke="#FFFFFF" stroke-opacity=".5"/>
+  <circle cx="145.0" cy="288.0" r="2.5" fill="#FFFFFF"/>
+  <text class="lb" x="101.0" y="258.0" text-anchor="end" font-family="Hana2, Apple SD Gothic Neo, Malgun Gothic, sans-serif" font-size="13" font-weight="400" fill="#FFFFFF" fill-opacity="1">지정 현황</text>
+  <path d="M479.0,288.0 L517.0,262.0" stroke="#FFFFFF" stroke-opacity=".5"/>
+  <circle cx="479.0" cy="288.0" r="2.5" fill="#FFFFFF"/>
+  <text class="lb" x="523.0" y="258.0" text-anchor="start" font-family="Hana2, Apple SD Gothic Neo, Malgun Gothic, sans-serif" font-size="13" font-weight="400" fill="#FFFFFF" fill-opacity="1">향후 일정</text>
+  <path d="M352.0,374.5 L408.0,410.5" stroke="#FFFFFF" stroke-opacity=".5"/>
+  <circle cx="352.0" cy="374.5" r="2.5" fill="#FFFFFF"/>
+  <text class="lb" x="414.0" y="414.5" text-anchor="start" font-family="Hana2, Apple SD Gothic Neo, Malgun Gothic, sans-serif" font-size="13" font-weight="400" fill="#FFFFFF" fill-opacity="1">자료 수집</text>
+  <path d="M272.0,225.5 L220.0,191.5" stroke="#FFFFFF" stroke-opacity=".5"/>
+  <circle cx="272.0" cy="225.5" r="2.5" fill="#FFFFFF"/>
+  <text class="lb" x="214.0" y="187.5" text-anchor="end" font-family="Hana2, Apple SD Gothic Neo, Malgun Gothic, sans-serif" font-size="13" font-weight="400" fill="#FFFFFF" fill-opacity="1">규제 추진</text>
+  <path d="M396,126 L432,102" stroke="#FFFFFF" stroke-opacity=".5"/>
+  <circle cx="396" cy="126" r="2.5" fill="#FFFFFF"/>
+  <text class="lb lb-main" x="438" y="98" text-anchor="start" font-family="Hana2, Apple SD Gothic Neo, Malgun Gothic, sans-serif" font-size="15" font-weight="500" fill="#FFFFFF" fill-opacity="1">AX Daily</text>
+</svg>
