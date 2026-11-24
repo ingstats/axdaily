@@ -380,17 +380,27 @@
     .more-b{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0;border:0;background:none;font:inherit;font-size:14px;font-weight:700;color:var(--hana-text);cursor:pointer}
     .more-b::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg)}
     article.item.open .more-b::after{transform:translateY(2px) rotate(-135deg)}
-    .mk-bar{display:none}
-    ul.wl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:16px}
-    .wl-r{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:10px 0}
-    .wl-s{display:none}
+    /* 폰 시세 목록: 두 칸 목록 유지, 칸마다 [미니 추이 | 지표명·현재값·전일 대비] */
+    .mk-bar{flex-wrap:nowrap;gap:8px;margin-top:-6px;font-size:12px}
+    .mk-bar #mk-range{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .per{flex:none;gap:0}
+    .per button{min-width:38px;min-height:40px;padding:0 5px;font-size:12px}
+    ul.wl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:14px}
+    .wl-r{grid-template-columns:54px minmax(0,1fr);grid-template-areas:"n n" "s v";column-gap:10px;row-gap:6px;align-items:center;padding:12px 0}
+    .wl-s{grid-area:s}
+    .wl-s .pc{display:none}
+    .wl-n{grid-area:n;min-width:0;font-size:11px;line-height:1.45}
     .wl-n .s.nt{display:none}
-    .wl-n .nm{font-size:14px;line-height:1.45}
-    .wl-n .s{font-size:12px}
-    .wl-v{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:8px;text-align:left}
-    .wl-v .v{display:inline;font-size:16px}
-    .wl-v .ch{display:inline}
-    .wl-h{margin-top:12px}
+    .wl-n .nm{font-size:12.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .wl-n .s{display:inline;margin-top:0;font-size:11px;white-space:nowrap}
+    .wl-n .s:not(:last-child)::after{content:" ·"}
+    .wl-v{grid-area:v;text-align:left}
+    .wl-v .v{font-size:16px;line-height:1.3;letter-spacing:-0.01em}
+    .wl-v .ch{font-size:11.5px;line-height:1.35}
+    .wl-h{margin-top:12px;font-size:12px}
+    .hr-r{padding:9px 0}
+    .hr-r .nm,.hr-r .b .v{font-size:13.5px}
+    .hr-r .s{font-size:11.5px}
     .hr-h{margin-top:20px}
     details.mk-src{margin-top:4px}
     details.mk-src > summary{display:flex;align-items:center;gap:8px;min-height:44px;font-size:13px;color:var(--sub);cursor:pointer}
@@ -664,7 +674,9 @@
     const end = all[all.length - 1].d, start = shiftMonths(end, mkPer);
     const pts = all.filter(p => p.d >= start);
     const c = chg(ind, pts[0].v, pts[pts.length - 1].v);
-    const W = Math.max(80, box.clientWidth), H = 32, T = 5, B = 5, R = 5;
+    const narrow = window.matchMedia('(max-width:560px)').matches;
+    const W = Math.max(40, box.clientWidth), H = narrow ? 38 : 32, T = 5, B = narrow ? 3 : 5, R = 5;
+    const col = c.dir > 0 ? UP : c.dir < 0 ? DOWN : FLAT;
     const t0 = Date.parse(start), t1 = Date.parse(end);
     let lo = Math.min(...pts.map(p => p.v)), hi = Math.max(...pts.map(p => p.v)); if (hi - lo < 1e-9) { lo -= 1; hi += 1; }
     const X = (iso) => (Date.parse(iso) - t0) / (t1 - t0 || 1) * (W - R - 2) + 2;
@@ -676,11 +688,19 @@
     svg.setAttribute('aria-label', `${ind.label} ${qd(pts[0].d)} ${fmtV(ind, pts[0].v)}에서 ${qd(end)} ${fmtV(ind, pts[pts.length - 1].v)}, ${c.aria}`);
     box.querySelector('.sp-g')?.remove();
     const g = document.createElement('div'); g.className = 'sp-g'; g.appendChild(svg); box.prepend(g);
-    el('line', {x1: 0, x2: W, y1: Y(pts[0].v), y2: Y(pts[0].v), stroke: '#E6E9E9', 'stroke-width': 1});
-    el('path', {d: pts.map((p, i) => `${i ? 'L' : 'M'}${X(p.d).toFixed(1)},${Y(p.v).toFixed(1)}`).join(''), fill: 'none', stroke: LINE, 'stroke-width': 1.5, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'});
-    if (ind.kind === 'event') for (const p of pts.slice(0, -1)) el('circle', {cx: X(p.d), cy: Y(p.v), r: 2.5, fill: LINE});
+    // 기간 등락 색(상승 레드·하락 파랑)으로 선과 아래 옅은 채움, 점선은 기간 시작값
+    const gid = `spg-${ind.id}`;
+    const defs = el('defs', {}), lg = document.createElementNS(SVGNS, 'linearGradient');
+    lg.setAttribute('id', gid); lg.setAttribute('x1', 0); lg.setAttribute('x2', 0); lg.setAttribute('y1', 0); lg.setAttribute('y2', 1);
+    [[0, .22], [1, 0]].forEach(([o, a]) => { const s = document.createElementNS(SVGNS, 'stop'); s.setAttribute('offset', o); s.setAttribute('stop-color', col); s.setAttribute('stop-opacity', a); lg.appendChild(s); });
+    defs.appendChild(lg);
+    const line = pts.map((p, i) => `${i ? 'L' : 'M'}${X(p.d).toFixed(1)},${Y(p.v).toFixed(1)}`).join('');
+    el('path', {d: `${line}L${X(end).toFixed(1)},${H}L${X(pts[0].d).toFixed(1)},${H}Z`, fill: `url(#${gid})`, stroke: 'none'});
+    el('line', {x1: 0, x2: W, y1: Y(pts[0].v), y2: Y(pts[0].v), stroke: '#A9B0B1', 'stroke-width': 1, 'stroke-dasharray': '1.5 2.5'});
+    el('path', {d: line, fill: 'none', stroke: col, 'stroke-width': narrow ? 1.4 : 1.5, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'});
+    if (ind.kind === 'event') for (const p of pts.slice(0, -1)) el('circle', {cx: X(p.d), cy: Y(p.v), r: narrow ? 1.8 : 2.5, fill: col});
     const lp = pts[pts.length - 1];
-    el('circle', {cx: X(lp.d), cy: Y(lp.v), r: 4, fill: c.dir > 0 ? UP : c.dir < 0 ? DOWN : FLAT, stroke: '#FFFFFF', 'stroke-width': 2});
+    el('circle', {cx: X(lp.d), cy: Y(lp.v), r: narrow ? 3 : 4, fill: col, stroke: '#FFFFFF', 'stroke-width': narrow ? 1.5 : 2});
 
     // 손가락·마우스: 그 날짜의 값
     const tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true; g.appendChild(tip);
@@ -700,8 +720,10 @@
         if (k) { const sp = Math.round((best.v - k.v) * 1000) / 10; html += `<p>국고채 3년 대비 ${sp >= 0 ? '+' : '−'}${fmtNum(Math.abs(sp), 1)}bp</p>`; }
       }
       tip.innerHTML = html; tip.hidden = false;
-      const gw = g.clientWidth;
-      tip.style.left = Math.min(Math.max(0, x - 90), Math.max(0, gw - tip.offsetWidth)) + 'px';
+      // 좁은 칸에서도 말풍선이 섹션 밖으로 나가지 않게: 섹션 폭 안에서 위치 고정
+      const gr = g.getBoundingClientRect(), sr = ($('mk') || g).getBoundingClientRect();
+      const lo = sr.left - gr.left, hi = sr.right - gr.left - tip.offsetWidth;
+      tip.style.left = Math.min(Math.max(lo, x * (gr.width / W) - 90), Math.max(lo, hi)) + 'px';
       tip.style.top = (H + 4) + 'px';
     };
     const out = () => { tip.hidden = true; guide.setAttribute('visibility', 'hidden'); };
@@ -734,7 +756,7 @@
         sub = [`${md(r.last.d)} 발행`, mp != null ? `민평 대비 ${sgnBp(mp)}` : k ? `국고채 3년 대비 ${sgnBp(sp)}` : ''];
       } else { nt = r.ind.note || ''; sub = [r.last.d !== refDate ? md(r.last.d) : '']; }
       return `<li class="wl-r">
-        <div class="wl-n"><span class="nm">${esc(r.ind.label)}</span>${nt ? `<span class="s nt">${esc(nt)}</span>` : ''}${sub.filter(Boolean).map(x => `<span class="s">${esc(x)}</span>`).join('')}</div>
+        <div class="wl-n"><span class="nm">${esc(r.ind.label)}</span>${nt ? `<span class="s nt">${esc(nt)}</span>` : ''}${sub.filter(Boolean).map(x => `<span class="s">${esc(x)}</span>`).join(' ')}</div>
         <div class="wl-s" data-id="${esc(r.ind.id)}"><span class="pc"></span></div>
         <div class="wl-v"><span class="v num">${esc(fmtV(r.ind, r.last.v))}</span>${chgHtml(chg(r.ind, r.prev && r.prev.v, r.last.v), ev ? '직전 발행 대비 ' : '전일 대비 ')}</div>
       </li>`;
@@ -798,7 +820,7 @@
       const r = drawSpark(box, ind, mkAsof);
       if (r && ind.kind !== 'event' && (!range || r.end > range[1])) range = [r.start, r.end];
     });
-    if (range) $('mk-range').textContent = `추이 ${qd(range[0])}~${qd(range[1])}`;
+    if (range) $('mk-range').textContent = window.matchMedia('(max-width:560px)').matches ? `추이 ${qd(range[0])}부터` : `추이 ${qd(range[0])}~${qd(range[1])}`;
   }
 
   async function showMarket(asof){
