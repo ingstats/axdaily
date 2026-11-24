@@ -1,0 +1,462 @@
+{
+ "schema_version": 1,
+ "title": "금융권 AI 관련 규제·제도 추적",
+ "last_checked": "2026-11-23",
+ "stages": [
+  "추진 발표",
+  "예고·국회 제출",
+  "확정",
+  "시행"
+ ],
+ "items": [
+  {
+   "id": "ai-basic-act",
+   "name": "인공지능기본법",
+   "owner": "과학기술정보통신부",
+   "kind": "법률",
+   "events": [
+    {
+     "date": "2025-11-12",
+     "stage": 2,
+     "text": "시행령 제정안 입법예고",
+     "url": "https://korea.kr/news/policyNewsView.do?newsId=148958380"
+    },
+    {
+     "date": "2026-01-20",
+     "stage": 3,
+     "text": "시행령 국무회의 의결",
+     "url": "https://korea.kr/news/policyNewsView.do?newsId=148958380"
+    },
+    {
+     "date": "2026-01-22",
+     "stage": 4,
+     "text": "법·시행령 시행",
+     "url": "https://korea.kr/news/policyNewsView.do?newsId=148958380"
+    },
+    {
+     "date": "2026-07-21",
+     "stage": 4,
+     "text": "일부개정 법률 시행",
+     "url": "https://www.law.go.kr/법령/인공지능발전과신뢰기반조성등에관한기본법"
+    }
+   ],
+   "next": {
+    "when": "시행 후 1년 이상",
+    "text": "과태료 부과·사실조사 유예",
+    "source_type": "언론",
+    "url": "https://www.hankyung.com/article/202601202345i"
+   }
+  },
+  {
+   "id": "fin-ai-guideline",
+   "name": "금융분야 인공지능 가이드라인 개정",
+   "owner": "금융위원회·금융감독원",
+   "kind": "자율규제",
+   "events": [
+    {
+     "date": "2026-06-18",
+     "stage": 3,
+     "text": "개정안 발표",
+     "url": "https://www.fsc.go.kr/no010101/87142"
+    },
+    {
+     "date": "2026-06-22",
+     "stage": 4,
+     "text": "시행",
+     "url": "https://www.fsc.go.kr/no010101/87142"
+    }
+   ],
+   "next": {
+    "when": "2026년 하반기",
+    "text": "AI 에이전트 시범운영 등 후속과제 검토",
+    "source_type": "공식",
+    "url": "https://www.fsc.go.kr/no010101/87142"
+   }
+  },
+  {
+   "id": "genai-model-change",
+   "name": "생성형 AI 모델 변경 절차 간소화",
+   "owner": "금융위원회",
+   "kind": "제도 개선",
+   "events": [
+    {
+     "date": "2026-04-15",
+     "stage": 4,
+     "text": "정례회의 확정 및 시행",
+     "url": "https://www.fsc.go.kr/no010101/86712"
+    }
+   ],
+   "next": null
+  },
+  {
+   "id": "saas-netsep",
+   "name": "내부망 SaaS 망분리 예외",
+   "owner": "금융위원회·금융감독원",
+   "kind": "전자금융감독규정시행세칙",
+   "events": [
+    {
+     "date": "2026-01-19",
+     "stage": 1,
+     "text": "개선방안 발표",
+     "url": "https://www.fsc.go.kr/no010101/86080"
+    },
+    {
+     "date": "2026-01-20",
+     "stage": 2,
+     "text": "시행세칙 개정안 사전예고",
+     "url": "https://www.fsc.go.kr/no010101/86080"
+    },
+    {
+     "date": "2026-04-07",
+     "stage": 3,
+     "text": "규제개혁위원회 심사",
+     "url": "https://www.fsc.go.kr/no010101/86745"
+    },
+    {
+     "date": "2026-04-20",
+     "stage": 4,
+     "text": "시행",
+     "url": "https://www.fsc.go.kr/no010101/86745"
+    }
+   ],
+   "next": null
+  },
+  {
+   "id": "security-ai-relief",
+   "name": "보안 목적 AI 망분리 긴급 완화",
+   "owner": "금융위원회",
+   "kind": "비조치의견서 (1년 한시)",
+   "events": [
+    {
+     "date": "2026-05-26",
+     "stage": 1,
+     "text": "긴급 완화 추진 발표",
+     "url": "https://www.fsc.go.kr/no010101/86972"
+    },
+    {
+     "date": "2026-06-17",
+     "stage": 4,
+     "text": "1차 10개사 선정",
+     "url": "https://www.fsc.go.kr/no010101/87646"
+    },
+    {
+     "date": "2026-09-03",
+     "stage": 4,
+     "text": "2차 신청 공고",
+     "url": "https://www.fsc.go.kr/no010101/87646"
+    }
+   ],
+   "next": {
+    "when": "시기 미정",
+    "text": "상시 제도화 추진",
+    "source_type": "공식",
+    "url": "https://www.fsc.go.kr/no010101/88086"
+   }
+  },
+  {
+   "id": "netsep-full-lift",
+   "name": "망분리 규제 전면 해제",
+   "owner": "금융위원회",
+   "kind": "제도 개선",
+   "events": [
+    {
+     "date": "2026-11-05",
+     "stage": 1,
+     "text": "전면 해제 추진 발표",
+     "url": "https://www.fsc.go.kr/no010101/88086"
+    }
+   ],
+   "next": {
+    "when": "시기 미정",
+    "text": "세부 방안 마련",
+    "source_type": "공식",
+    "url": "https://www.fsc.go.kr/no010101/88086"
+   }
+  },
+  {
+   "id": "digital-fin-safety-act",
+   "name": "디지털금융안전법 제정",
+   "owner": "금융위원회",
+   "kind": "법률",
+   "events": [
+    {
+     "date": "2026-11-05",
+     "stage": 1,
+     "text": "제정 추진 발표",
+     "url": "https://www.fsc.go.kr/no010101/88086"
+    }
+   ],
+   "next": {
+    "when": "2027년 1분기",
+    "text": "법안 마련",
+    "source_type": "공식",
+    "url": "https://www.fsc.go.kr/no010101/88086"
+   }
+  },
+  {
+   "id": "efsr-security",
+   "name": "전자금융감독규정 개정(IT자산 관리 등)",
+   "owner": "금융위원회",
+   "kind": "감독규정",
+   "events": [
+    {
+     "date": "2026-11-05",
+     "stage": 1,
+     "text": "개정 추진 발표",
+     "url": "https://www.fsc.go.kr/no010101/88086"
+    },
+    {
+     "date": "2026-11-18",
+     "stage": 2,
+     "text": "규정변경예고",
+     "url": "https://www.fsc.go.kr/no010101/88162"
+    }
+   ],
+   "next": {
+    "when": "2027년 1분기",
+    "text": "시행 예정",
+    "source_type": "언론",
+    "url": "https://www.dt.co.kr/article/12095814"
+   }
+  },
+  {
+   "id": "efta-amend",
+   "name": "전자금융거래법 개정(이행강제금)",
+   "owner": "국회",
+   "kind": "법률",
+   "events": [
+    {
+     "date": "2026-11-05",
+     "stage": 2,
+     "text": "국회 계류",
+     "url": "https://www.fsc.go.kr/no010101/88086"
+    }
+   ],
+   "next": {
+    "when": "2026년 내",
+    "text": "국회 통과 추진",
+    "source_type": "공식",
+    "url": "https://www.fsc.go.kr/no010101/88086"
+   }
+  }
+ ],
+ "upcoming": [
+  {
+   "when": "2026-11-30",
+   "label": "11.30.",
+   "text": "금융회사 외부접점 전수점검 완료(관리대장 등재분)",
+   "url": "https://www.fsc.go.kr/no010101/88086"
+  },
+  {
+   "when": "2026-12",
+   "label": "12월 중",
+   "text": "금융권 공동 해킹 관제체계 시범운영",
+   "url": "https://www.fsc.go.kr/no010101/88086"
+  },
+  {
+   "when": "2026-12-31",
+   "label": "12.31.",
+   "text": "미등재 시스템·내부통제 전수조사 완료",
+   "url": "https://www.fsc.go.kr/no010101/88086"
+  },
+  {
+   "when": "2027-Q1",
+   "label": "2027년 1분기",
+   "text": "디지털금융안전법 법안 마련, 보안 내부통제 가이드라인 시행",
+   "url": "https://www.fsc.go.kr/no010101/88086"
+  }
+ ],
+ "sources": {
+  "https://www.fsc.go.kr/no010101/82885": {
+   "org": "금융위원회",
+   "type": "보도자료",
+   "date": "2024-08-13",
+   "title": "「금융분야 망분리 개선 로드맵」 발표",
+   "label": "금융분야 망분리 개선 로드맵 발표"
+  },
+  "https://korea.kr/news/policyNewsView.do?newsId=148958380": {
+   "org": "과학기술정보통신부",
+   "type": "정책브리핑",
+   "date": "2026-01-21",
+   "title": "'인공지능기본법' 22일 시행…생성형 AI 결과물 '워터마크' 표시 의무",
+   "label": "인공지능기본법 시행 안내"
+  },
+  "https://www.law.go.kr/법령/인공지능발전과신뢰기반조성등에관한기본법": {
+   "org": "법제처",
+   "type": "국가법령정보센터",
+   "date": "2026-01-20",
+   "title": "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법(법률 제21311호)",
+   "label": "인공지능기본법 법령 원문"
+  },
+  "https://www.fsc.go.kr/no010101/86080": {
+   "org": "금융위원회",
+   "type": "보도자료",
+   "date": "2026-01-19",
+   "title": "금융사들이 손쉽게 클라우드 기반 소프트웨어를 활용하도록 망분리 규제를 개선합니다.",
+   "label": "내부망 SaaS 망분리 규제 개선안 사전예고"
+  },
+  "https://www.fsc.go.kr/no010101/86712": {
+   "org": "금융위원회",
+   "type": "보도자료",
+   "date": "2026-04-15",
+   "title": "생성형 AI 활용을 위한 혁신금융서비스 지정 절차가 간소화되었습니다.",
+   "label": "생성형 AI 모델 변경 절차 간소화"
+  },
+  "https://www.fsc.go.kr/no010101/86745": {
+   "org": "금융위원회",
+   "type": "보도자료",
+   "date": "2026-04-20",
+   "title": "4월 20일부터 금융회사는 내부 업무망에서 클라우드 기반 응용소프트웨어(SaaS)를 보다 원활하게 활용할 수 있습니다.",
+   "label": "내부망 SaaS 망분리 예외 시행"
+  },
+  "https://www.fsc.go.kr/no010101/86972": {
+   "org": "금융위원회",
+   "type": "보도자료",
+   "date": "2026-05-26",
+   "title": "금융권 AI 전환 본격화! 금융분야 망분리 규제를 완화하여 혁신은 넓게, 보안은 더 단단하게 하겠습니다.",
+   "label": "보안 목적 AI 망분리 긴급 완화 추진"
+  },
+  "https://www.fsc.go.kr/no010101/87142": {
+   "org": "금융위원회",
+   "type": "보도자료",
+   "date": "2026-06-18",
+   "title": "정부와 금융권이 함께 금융권 AX를 가속화해 나가겠습니다.",
+   "label": "금융분야 인공지능 가이드라인 개정 발표"
+  },
+  "https://www.fsc.go.kr/no010101/87646": {
+   "org": "금융위원회",
+   "type": "보도자료",
+   "date": "2026-09-03",
+   "title": "보다 다양한 금융회사들이 AI 보안위협에 철저히 대비할 수 있도록 제2차 망분리 규제 긴급 완화 조치를 추진합니다.",
+   "label": "제2차 망분리 규제 긴급 완화 추진"
+  },
+  "https://www.fsc.go.kr/no010101/88086": {
+   "org": "금융위원회",
+   "type": "보도자료",
+   "date": "2026-11-05",
+   "title": "AI시대, 거세지는 침해위협에 맞서 全 금융권이 튼튼한 보안체계로 무장하도록 혁신적인 정책과제를 적극 추진하겠습니다.",
+   "label": "전 금융권 보안체계 혁신방안 발표"
+  },
+  "https://www.fsc.go.kr/no010101/88162": {
+   "org": "금융위원회",
+   "type": "보도자료",
+   "date": "2026-11-18",
+   "title": "全금융권이 상시적으로 철저하게 보안 관리에 임하도록 IT자산 식별·관리를 의무화하고 취약점 점검·평가 제도를 내실화하겠습니다.",
+   "label": "IT자산 관리 의무화 등 전자금융감독규정 개정 예고"
+  },
+  "https://www.hankyung.com/article/202601202345i": {
+   "org": "한국경제",
+   "type": "언론",
+   "date": "2026-01-21",
+   "title": "'AI 기본법' 시행 DAY-1…과기정통부 \"위반해도 조사 아예 안 한다\"",
+   "label": "인공지능기본법 과태료·사실조사 유예 보도"
+  },
+  "https://www.dt.co.kr/article/12095814": {
+   "org": "디지털타임스",
+   "type": "언론",
+   "date": "2026-11-18",
+   "title": "AI 해킹 위협에 금융권 보안 ‘고삐’…대형사 취약점 점검 연 2회로 확대",
+   "label": "전자금융감독규정 개정 일정 보도"
+  }
+ },
+ "derived": {
+  "computed_on": "2026-11-23",
+  "rows": [
+   {
+    "id": "ai-basic-act",
+    "stage": 4,
+    "stage_label": "시행",
+    "last_date": "2026-07-21",
+    "last_text": "일부개정 법률 시행"
+   },
+   {
+    "id": "fin-ai-guideline",
+    "stage": 4,
+    "stage_label": "시행",
+    "last_date": "2026-06-22",
+    "last_text": "시행"
+   },
+   {
+    "id": "genai-model-change",
+    "stage": 4,
+    "stage_label": "시행",
+    "last_date": "2026-04-15",
+    "last_text": "정례회의 확정 및 시행"
+   },
+   {
+    "id": "saas-netsep",
+    "stage": 4,
+    "stage_label": "시행",
+    "last_date": "2026-04-20",
+    "last_text": "시행"
+   },
+   {
+    "id": "security-ai-relief",
+    "stage": 4,
+    "stage_label": "시행",
+    "last_date": "2026-09-03",
+    "last_text": "2차 신청 공고"
+   },
+   {
+    "id": "netsep-full-lift",
+    "stage": 1,
+    "stage_label": "추진 발표",
+    "last_date": "2026-11-05",
+    "last_text": "전면 해제 추진 발표"
+   },
+   {
+    "id": "digital-fin-safety-act",
+    "stage": 1,
+    "stage_label": "추진 발표",
+    "last_date": "2026-11-05",
+    "last_text": "제정 추진 발표"
+   },
+   {
+    "id": "efsr-security",
+    "stage": 2,
+    "stage_label": "예고·국회 제출",
+    "last_date": "2026-11-18",
+    "last_text": "규정변경예고"
+   },
+   {
+    "id": "efta-amend",
+    "stage": 2,
+    "stage_label": "예고·국회 제출",
+    "last_date": "2026-11-05",
+    "last_text": "국회 계류"
+   }
+  ],
+  "upcoming_active": [
+   {
+    "when": "2026-11-30",
+    "label": "11.30.",
+    "text": "금융회사 외부접점 전수점검 완료(관리대장 등재분)",
+    "url": "https://www.fsc.go.kr/no010101/88086"
+   },
+   {
+    "when": "2026-12",
+    "label": "12월 중",
+    "text": "금융권 공동 해킹 관제체계 시범운영",
+    "url": "https://www.fsc.go.kr/no010101/88086"
+   },
+   {
+    "when": "2026-12-31",
+    "label": "12.31.",
+    "text": "미등재 시스템·내부통제 전수조사 완료",
+    "url": "https://www.fsc.go.kr/no010101/88086"
+   },
+   {
+    "when": "2027-Q1",
+    "label": "2027년 1분기",
+    "text": "디지털금융안전법 법안 마련, 보안 내부통제 가이드라인 시행",
+    "url": "https://www.fsc.go.kr/no010101/88086"
+   }
+  ],
+  "by_stage": {
+   "추진 발표": 2,
+   "예고·국회 제출": 2,
+   "확정": 0,
+   "시행": 5
+  }
+ }
+}

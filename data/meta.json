@@ -1,0 +1,12 @@
+{
+ "id": "ax-daily",
+ "name": "AX Daily Report",
+ "cover_word": "AX",
+ "description": "캐피탈사 및 은행·카드·보험·증권 등 금융권의 AI 전환(AX) 동향과 관련 기술·제도 변화를 정리하여 제공합니다.",
+ "frequency_label": "평일 오전 8시",
+ "category": "금융·AI",
+ "team": "AX추진TFT",
+ "contact_email": "editor@example.com",
+ "hub_url": "",
+ "web_url": "https://axdaily.site"
+}

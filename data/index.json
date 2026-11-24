@@ -1,0 +1,28 @@
+{
+ "issues": [
+  {
+   "date": "2026-11-23",
+   "status": "final",
+   "issue_no": 3,
+   "title": "[AX Daily Report] NH농협은행, AI 에이전트 활용 여신감사 시스템 시범 검증 외"
+  },
+  {
+   "date": "2026-11-20",
+   "status": "final",
+   "issue_no": 2,
+   "title": "[AX Daily Report] 금감원, 금융회사에 AI 산업 투자·대출 노출 현황 첫 보고 요구 외"
+  },
+  {
+   "date": "2026-11-19",
+   "status": "final",
+   "issue_no": 1,
+   "title": "[금융권 AX 데일리] 미국 대형 은행, 외부 AI 에이전트 이용 피해 고객 책임으로 약관 개정 외"
+  },
+  {
+   "date": "2026-11-18",
+   "status": "pilot",
+   "issue_no": 0,
+   "title": "[금융권 AX 데일리] 우리금융캐피탈 AI 추천 서비스 출시 예정 외"
+  }
+ ]
+}

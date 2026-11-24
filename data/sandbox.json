@@ -1,0 +1,1328 @@
+{
+ "schema_version": 1,
+ "title": "생성형 AI 혁신금융서비스 지정 현황",
+ "scope": "금융위원회 보도자료에서 생성형 AI 활용이 명시된 혁신금융서비스(망분리 규제 특례) 신규 지정과 지정내용 변경",
+ "last_checked": "2026-11-23",
+ "anchor": {
+  "date": "2026-04-15",
+  "designated": 169,
+  "launched": 45,
+  "note": "생성형 AI 서비스 누적 지정·출시 건수 (금융위원회 발표)",
+  "source": {
+   "id": "fsc-86712",
+   "url": "https://www.fsc.go.kr/no010101/86712",
+   "title": "생성형 AI 활용을 위한 혁신금융서비스 지정 절차가 간소화되었습니다.",
+   "evidence": "현재까지 169건 지정되어 45개 서비스가 출시"
+  }
+ },
+ "categories": {
+  "A": "생성형 AI 활용 서비스",
+  "B": "생성형 AI 포함 SaaS",
+  "U": "분야 미기재"
+ },
+ "rounds": [
+  {
+   "id": "fsc-83554",
+   "announced": "2024-12-09",
+   "meeting": "2024-11-27",
+   "title": "생성형 AI를 활용한 혁신적인 금융서비스 제공이 본격화 됩니다.",
+   "url": "https://www.fsc.go.kr/no010101/83554",
+   "cumulative_all": null,
+   "groups": [
+    {
+     "category": "A",
+     "label": "생성형 AI 활용 금융서비스",
+     "count": 10,
+     "firms_stated": 9,
+     "evidence": "9개 금융회사, 10개 혁신금융서비스",
+     "firms": [
+      {
+       "as_written": "신한은행",
+       "count": 2
+      },
+      {
+       "as_written": "KB은행"
+      },
+      {
+       "as_written": "NH은행"
+      },
+      {
+       "as_written": "카카오뱅크"
+      },
+      {
+       "as_written": "NH증권"
+      },
+      {
+       "as_written": "KB증권"
+      },
+      {
+       "as_written": "교보생명"
+      },
+      {
+       "as_written": "한화생명"
+      },
+      {
+       "as_written": "KB카드"
+      }
+     ]
+    }
+   ],
+   "changes": [],
+   "label": "금융권 생성형 AI 혁신금융서비스 첫 지정"
+  },
+  {
+   "id": "fsc-83584",
+   "announced": "2024-12-11",
+   "meeting": null,
+   "title": "혁신금융서비스 25건을 신규 지정하였습니다.",
+   "url": "https://www.fsc.go.kr/no010101/83584",
+   "cumulative_all": 453,
+   "groups": [
+    {
+     "category": "A",
+     "label": "클라우드를 활용한 생성형 AI의 내부망 이용",
+     "count": 3,
+     "firms_stated": 3,
+     "evidence": "KB캐피탈 외 2개사",
+     "firms": [
+      {
+       "as_written": "KB캐피탈"
+      },
+      {
+       "as_written": "KB라이프생명보험"
+      },
+      {
+       "as_written": "한화생명보험"
+      }
+     ]
+    }
+   ],
+   "changes": [],
+   "label": "혁신금융서비스 25건 신규 지정"
+  },
+  {
+   "id": "fsc-83862",
+   "announced": "2025-01-15",
+   "meeting": null,
+   "title": "혁신금융서비스 45건을 신규 지정하였습니다.",
+   "url": "https://www.fsc.go.kr/no010101/83862",
+   "cumulative_all": 545,
+   "groups": [
+    {
+     "category": "B",
+     "label": "내부 업무용 단말기에서 SaaS 및 생성형 AI 이용 (M365 Copilot)",
+     "count": 26,
+     "firms_stated": 26,
+     "evidence": "26건, 26개사",
+     "firms": [
+      {
+       "as_written": "골드만삭스증권회사 서울지점"
+      },
+      {
+       "as_written": "BNK금융지주"
+      },
+      {
+       "as_written": "신한금융지주"
+      },
+      {
+       "as_written": "KB금융지주"
+      },
+      {
+       "as_written": "국민은행"
+      },
+      {
+       "as_written": "뱅크오브아메리카 서울지점"
+      },
+      {
+       "as_written": "BNK부산은행"
+      },
+      {
+       "as_written": "신한은행"
+      },
+      {
+       "as_written": "한국씨티은행"
+      },
+      {
+       "as_written": "교보생명"
+      },
+      {
+       "as_written": "메트라이프생명"
+      },
+      {
+       "as_written": "신한라이프생명"
+      },
+      {
+       "as_written": "AIA생명"
+      },
+      {
+       "as_written": "KB 라이프 생명"
+      },
+      {
+       "as_written": "KB손해보험"
+      },
+      {
+       "as_written": "미래에셋증권"
+      },
+      {
+       "as_written": "NH투자증권"
+      },
+      {
+       "as_written": "메릴린치인터내셔날 엘엘씨증권 서울지점"
+      },
+      {
+       "as_written": "KB증권"
+      },
+      {
+       "as_written": "신한투자증권"
+      },
+      {
+       "as_written": "제이티친애저축은행"
+      },
+      {
+       "as_written": "BNK캐피탈"
+      },
+      {
+       "as_written": "KB국민카드"
+      },
+      {
+       "as_written": "신한카드"
+      },
+      {
+       "as_written": "현대캐피탈"
+      },
+      {
+       "as_written": "신한디에스"
+      }
+     ]
+    },
+    {
+     "category": "B",
+     "label": "내부 업무용 단말기에서 SaaS 및 생성형 AI 이용 (HyperClovaX, AWS Bedrock, Azure OpenAI 등)",
+     "count": 15,
+     "firms_stated": 13,
+     "evidence": "15건, 13개사",
+     "firms": [
+      {
+       "as_written": "미래에셋증권"
+      },
+      {
+       "as_written": "우리은행"
+      },
+      {
+       "as_written": "미래에셋생명"
+      },
+      {
+       "as_written": "유안타증권"
+      },
+      {
+       "as_written": "카카오페이증권"
+      },
+      {
+       "as_written": "한국투자증권"
+      },
+      {
+       "as_written": "삼성카드"
+      },
+      {
+       "as_written": "현대캐피탈"
+      },
+      {
+       "as_written": "롯데멤버스"
+      },
+      {
+       "as_written": "뱅크샐러드"
+      },
+      {
+       "as_written": "핀다"
+      },
+      {
+       "as_written": "비바리퍼블리카"
+      },
+      {
+       "as_written": "토스페이먼츠"
+      }
+     ]
+    }
+   ],
+   "changes": [],
+   "label": "혁신금융서비스 45건 신규 지정"
+  },
+  {
+   "id": "fsc-84380",
+   "announced": "2025-04-16",
+   "meeting": null,
+   "title": "금융기관보험대리점의 판매비중 규제개선 등 혁신금융서비스 96건 신규 지정 의결",
+   "url": "https://www.fsc.go.kr/no010101/84380",
+   "cumulative_all": 645,
+   "groups": [
+    {
+     "category": "A",
+     "label": "클라우드를 활용한 생성형 AI의 내부망 이용",
+     "count": 21,
+     "firms_stated": 15,
+     "evidence": "NH투자증권 등 4개사(5건), 신한은행 등 11개사(16건)",
+     "firms": [
+      {
+       "as_written": "엔에이치투자증권",
+       "count": 2
+      },
+      {
+       "as_written": "토스증권"
+      },
+      {
+       "as_written": "교보증권"
+      },
+      {
+       "as_written": "아이엠뱅크"
+      },
+      {
+       "as_written": "신한은행"
+      },
+      {
+       "as_written": "에스씨아이평가정보"
+      },
+      {
+       "as_written": "디비금융투자"
+      },
+      {
+       "as_written": "라이나생명",
+       "count": 2
+      },
+      {
+       "as_written": "카카오페이손해보험"
+      },
+      {
+       "as_written": "아이엠캐피탈"
+      },
+      {
+       "as_written": "교보라이프플래닛생명보험"
+      },
+      {
+       "as_written": "디비생명보험"
+      },
+      {
+       "as_written": "하나은행",
+       "count": 5
+      },
+      {
+       "as_written": "제이비우리캐피탈"
+      },
+      {
+       "as_written": "메트라이프생명보험"
+      }
+     ]
+    }
+   ],
+   "changes": [
+    {
+     "count": 1,
+     "label": "생성형 AI 맞춤형 컨텐츠 서비스 사용데이터 범위 변경",
+     "firms": [
+      {
+       "as_written": "삼성증권"
+      }
+     ]
+    }
+   ],
+   "label": "혁신금융서비스 96건 신규 지정"
+  },
+  {
+   "id": "fsc-84483",
+   "announced": "2025-05-02",
+   "meeting": null,
+   "title": "소상공인 사업 기반 투자계약증권 유통플랫폼 등 혁신금융서비스 28건 신규 지정 의결",
+   "url": "https://www.fsc.go.kr/no010101/84483",
+   "cumulative_all": 673,
+   "groups": [
+    {
+     "category": "B",
+     "label": "클라우드를 활용한 SaaS의 내부망 이용 (M365 및 생성형 AI 어시스턴트 Copilot 등)",
+     "count": 27,
+     "firms_stated": 12,
+     "evidence": "토스증권 등 12개사(27건)",
+     "firms": [
+      {
+       "as_written": "KB국민카드"
+      },
+      {
+       "as_written": "KB라이프생명보험"
+      },
+      {
+       "as_written": "KB증권"
+      },
+      {
+       "as_written": "교보생명"
+      },
+      {
+       "as_written": "미쓰이스미토모은행서울지점"
+      },
+      {
+       "as_written": "비엔피파리바카디프생명보험"
+      },
+      {
+       "as_written": "상상인증권"
+      },
+      {
+       "as_written": "신한금융지주"
+      },
+      {
+       "as_written": "에이피더핀"
+      },
+      {
+       "as_written": "토스증권"
+      },
+      {
+       "as_written": "폭스바겐파이낸셜서비스코리아"
+      },
+      {
+       "as_written": "한국투자증권"
+      }
+     ]
+    }
+   ],
+   "changes": [],
+   "label": "혁신금융서비스 28건 신규 지정"
+  },
+  {
+   "id": "fsc-84808",
+   "announced": "2025-06-25",
+   "meeting": null,
+   "title": "“해외주식 소수단위 거래 서비스” 등 혁신금융서비스 14건 신규 지정 의결",
+   "url": "https://www.fsc.go.kr/no010101/84808",
+   "cumulative_all": 705,
+   "groups": [
+    {
+     "category": "A",
+     "label": "내부 시스템에서 생성형 AI를 활용하는 서비스",
+     "count": 13,
+     "firms_stated": 10,
+     "evidence": "13건, 10개사",
+     "firms": [
+      {
+       "as_written": "에스케이텔레콤"
+      },
+      {
+       "as_written": "현대카드"
+      },
+      {
+       "as_written": "우리은행"
+      },
+      {
+       "as_written": "한국예탁결제원"
+      },
+      {
+       "as_written": "제이티친애저축은행"
+      },
+      {
+       "as_written": "한국평가데이터",
+       "count": 3
+      },
+      {
+       "as_written": "NH투자증권"
+      },
+      {
+       "as_written": "웰컴저축은행"
+      },
+      {
+       "as_written": "비씨카드",
+       "count": 2
+      },
+      {
+       "as_written": "현대커머셜"
+      }
+     ]
+    }
+   ],
+   "changes": [
+    {
+     "count": 2,
+     "label": "AI 모델 추가, 업무용 단말기 활용 범위 확대",
+     "firms": [
+      {
+       "as_written": "한국투자증권"
+      },
+      {
+       "as_written": "신한은행"
+      }
+     ]
+    }
+   ],
+   "label": "혁신금융서비스 14건 신규 지정"
+  },
+  {
+   "id": "fsc-85310",
+   "announced": "2025-09-17",
+   "meeting": null,
+   "title": "“비금융정보 기반 포용금융 신용평가 서비스” 등 혁신금융서비스 57건 신규 지정 의결",
+   "url": "https://www.fsc.go.kr/no010101/85310",
+   "cumulative_all": 886,
+   "groups": [
+    {
+     "category": "A",
+     "label": "내부 임직원 및 고객 대상 생성형 AI 활용 서비스",
+     "count": 20,
+     "firms_stated": 11,
+     "evidence": "카카오페이 외 10개사(20건)",
+     "firms": [
+      {
+       "as_written": "카카오페이"
+      },
+      {
+       "as_written": "교보생명"
+      },
+      {
+       "as_written": "넥스트증권"
+      },
+      {
+       "as_written": "당근페이"
+      },
+      {
+       "as_written": "비바리퍼블리카"
+      },
+      {
+       "as_written": "비씨카드"
+      },
+      {
+       "as_written": "아이지넷"
+      },
+      {
+       "as_written": "케이뱅크"
+      },
+      {
+       "as_written": "토스증권"
+      },
+      {
+       "as_written": "핀다"
+      },
+      {
+       "as_written": "한화생명보험"
+      }
+     ]
+    }
+   ],
+   "changes": [],
+   "label": "혁신금융서비스 57건 신규 지정"
+  },
+  {
+   "id": "fsc-85901",
+   "announced": "2025-12-22",
+   "meeting": "2025-12-17",
+   "title": "혁신금융서비스 지정으로 서민·취약계층의 금융 접근성이 제고되고, 이자 부담이 경감됩니다.",
+   "url": "https://www.fsc.go.kr/no010101/85901",
+   "cumulative_all": null,
+   "groups": [
+    {
+     "category": "U",
+     "label": "망분리 규제 특례 (서비스 분야·기관명 미기재)",
+     "count": 28,
+     "firms_stated": null,
+     "evidence": "망분리 규제 특례(28건) 신규 지정",
+     "firms": []
+    }
+   ],
+   "changes": [],
+   "label": "혁신금융서비스 신규 지정(은행대리업 등)"
+  },
+  {
+   "id": "fsc-87236",
+   "announced": "2026-07-01",
+   "meeting": null,
+   "title": "“금융기관보험대리점 판매비중 규제개선” 등 혁신금융서비스 31건 신규 지정 의결",
+   "url": "https://www.fsc.go.kr/no010101/87236",
+   "cumulative_all": 1106,
+   "groups": [
+    {
+     "category": "A",
+     "label": "내부 임직원 및 고객 대상 생성형 AI 활용 서비스",
+     "count": 24,
+     "firms_stated": 20,
+     "evidence": "JB우리캐피탈 외 19개 사(24건)",
+     "firms": [
+      {
+       "as_written": "JB우리캐피탈"
+      },
+      {
+       "as_written": "KB국민카드"
+      },
+      {
+       "as_written": "KB자산운용"
+      },
+      {
+       "as_written": "네이버파이낸셜"
+      },
+      {
+       "as_written": "비바리퍼블리카"
+      },
+      {
+       "as_written": "비씨카드"
+      },
+      {
+       "as_written": "삼성생명"
+      },
+      {
+       "as_written": "삼성카드"
+      },
+      {
+       "as_written": "삼성화재해상보험"
+      },
+      {
+       "as_written": "아이엠라이프생명보험"
+      },
+      {
+       "as_written": "웰컴저축은행"
+      },
+      {
+       "as_written": "카카오뱅크"
+      },
+      {
+       "as_written": "카카오페이증권"
+      },
+      {
+       "as_written": "쿠팡파이낸셜"
+      },
+      {
+       "as_written": "쿠팡페이"
+      },
+      {
+       "as_written": "토스뱅크"
+      },
+      {
+       "as_written": "토스증권"
+      },
+      {
+       "as_written": "하나은행"
+      },
+      {
+       "as_written": "현대카드"
+      },
+      {
+       "as_written": "현대커머셜"
+      }
+     ]
+    }
+   ],
+   "changes": [
+    {
+     "count": 8,
+     "label": "생성형 AI 모델 추가, 시스템 구성·업무 방법 변경",
+     "firms": [
+      {
+       "as_written": "한화생명보험"
+      },
+      {
+       "as_written": "신한은행"
+      },
+      {
+       "as_written": "수협은행"
+      },
+      {
+       "as_written": "웰컴저축은행"
+      },
+      {
+       "as_written": "수산업협동조합중앙회"
+      },
+      {
+       "as_written": "하나은행"
+      },
+      {
+       "as_written": "교보생명"
+      },
+      {
+       "as_written": "비바리퍼블리카"
+      }
+     ]
+    }
+   ],
+   "label": "혁신금융서비스 31건 신규 지정"
+  },
+  {
+   "id": "fsc-87893",
+   "announced": "2026-10-07",
+   "meeting": null,
+   "title": "“개인간 중고거래 신용카드 안전결제 서비스” 등 혁신금융서비스 24건 신규 지정 의결",
+   "url": "https://www.fsc.go.kr/no010101/87893",
+   "cumulative_all": 1164,
+   "groups": [
+    {
+     "category": "A",
+     "label": "내부 임직원 및 고객 대상 생성형 AI 활용 서비스",
+     "count": 21,
+     "firms_stated": 14,
+     "evidence": "카카오페이 외 13개사(21건)",
+     "firms": [
+      {
+       "as_written": "카카오페이"
+      },
+      {
+       "as_written": "카카오페이손해보험"
+      },
+      {
+       "as_written": "카카오페이증권"
+      },
+      {
+       "as_written": "키움증권"
+      },
+      {
+       "as_written": "토스뱅크"
+      },
+      {
+       "as_written": "토스증권"
+      },
+      {
+       "as_written": "하이픈코퍼레이션"
+      },
+      {
+       "as_written": "한국투자증권"
+      },
+      {
+       "as_written": "한화투자증권"
+      },
+      {
+       "as_written": "한화생명보험"
+      },
+      {
+       "as_written": "한화손해보험"
+      },
+      {
+       "as_written": "현대차증권"
+      },
+      {
+       "as_written": "현대카드"
+      },
+      {
+       "as_written": "비바리퍼블리카"
+      }
+     ]
+    }
+   ],
+   "changes": [],
+   "label": "혁신금융서비스 24건 신규 지정"
+  }
+ ],
+ "checked_without_genai": [
+  {
+   "id": "fsc-83716",
+   "announced": "2024-12-24",
+   "note": "SaaS 지정(Github Copilot 포함)이나 보도자료에 생성형 AI 명시 없음"
+  },
+  {
+   "id": "fsc-84280",
+   "announced": "2025-04-02"
+  },
+  {
+   "id": "fsc-84985",
+   "announced": "2025-07-23"
+  },
+  {
+   "id": "fsc-85609",
+   "announced": "2025-11-05"
+  },
+  {
+   "id": "fsc-86157",
+   "announced": "2026-01-28",
+   "note": "SaaS 1건(한국거래소), 생성형 AI 명시 없음"
+  },
+  {
+   "id": "fsc-86810",
+   "announced": "2026-04-29"
+  },
+  {
+   "id": "fsc-87129",
+   "announced": "2026-06-17"
+  },
+  {
+   "id": "fsc-87338",
+   "announced": "2026-07-15"
+  },
+  {
+   "id": "fsc-87975",
+   "announced": "2026-10-21"
+  }
+ ],
+ "entities": {
+  "은행": {
+   "신한은행": [],
+   "KB국민은행": [
+    "KB은행",
+    "국민은행"
+   ],
+   "NH농협은행": [
+    "NH은행"
+   ],
+   "카카오뱅크": [],
+   "뱅크오브아메리카 서울지점": [],
+   "BNK부산은행": [],
+   "한국씨티은행": [],
+   "우리은행": [],
+   "iM뱅크": [
+    "아이엠뱅크"
+   ],
+   "하나은행": [],
+   "미쓰이스미토모은행 서울지점": [
+    "미쓰이스미토모은행서울지점"
+   ],
+   "케이뱅크": [],
+   "토스뱅크": [],
+   "수협은행": []
+  },
+  "보험": {
+   "교보생명": [],
+   "한화생명보험": [
+    "한화생명"
+   ],
+   "KB라이프생명보험": [
+    "KB 라이프 생명",
+    "KB라이프생명"
+   ],
+   "메트라이프생명보험": [
+    "메트라이프생명"
+   ],
+   "신한라이프생명보험": [
+    "신한라이프생명"
+   ],
+   "AIA생명보험": [
+    "AIA생명"
+   ],
+   "KB손해보험": [],
+   "미래에셋생명": [],
+   "라이나생명": [],
+   "카카오페이손해보험": [],
+   "교보라이프플래닛생명보험": [],
+   "DB생명보험": [
+    "디비생명보험"
+   ],
+   "BNP파리바카디프생명보험": [
+    "비엔피파리바카디프생명보험"
+   ],
+   "삼성생명": [],
+   "삼성화재해상보험": [
+    "삼성화재"
+   ],
+   "iM라이프생명보험": [
+    "아이엠라이프생명보험",
+    "아이엠라이프"
+   ],
+   "한화손해보험": []
+  },
+  "금융투자": {
+   "NH투자증권": [
+    "NH증권",
+    "엔에이치투자증권"
+   ],
+   "KB증권": [],
+   "골드만삭스증권 서울지점": [
+    "골드만삭스증권회사 서울지점"
+   ],
+   "미래에셋증권": [],
+   "메릴린치인터내셔날엘엘씨증권 서울지점": [
+    "메릴린치인터내셔날 엘엘씨증권 서울지점"
+   ],
+   "신한투자증권": [],
+   "유안타증권": [],
+   "카카오페이증권": [],
+   "한국투자증권": [],
+   "토스증권": [],
+   "교보증권": [],
+   "DB금융투자": [
+    "디비금융투자"
+   ],
+   "상상인증권": [],
+   "넥스트증권": [],
+   "KB자산운용": [],
+   "키움증권": [],
+   "한화투자증권": [],
+   "현대차증권": [],
+   "삼성증권": []
+  },
+  "신용카드": {
+   "KB국민카드": [
+    "KB카드"
+   ],
+   "신한카드": [],
+   "삼성카드": [],
+   "현대카드": [],
+   "비씨카드": []
+  },
+  "캐피탈": {
+   "KB캐피탈": [],
+   "BNK캐피탈": [],
+   "현대캐피탈": [],
+   "iM캐피탈": [
+    "아이엠캐피탈"
+   ],
+   "JB우리캐피탈": [
+    "제이비우리캐피탈"
+   ],
+   "폭스바겐파이낸셜서비스코리아": [],
+   "현대커머셜": [],
+   "쿠팡파이낸셜": []
+  },
+  "저축은행": {
+   "JT친애저축은행": [
+    "제이티친애저축은행"
+   ],
+   "웰컴저축은행": []
+  },
+  "금융지주": {
+   "BNK금융지주": [],
+   "신한금융지주": [],
+   "KB금융지주": []
+  },
+  "전자금융업자": {
+   "롯데멤버스": [],
+   "비바리퍼블리카": [],
+   "토스페이먼츠": [],
+   "카카오페이": [],
+   "당근페이": [],
+   "네이버파이낸셜": [],
+   "쿠팡페이": []
+  },
+  "신용정보업자": {
+   "뱅크샐러드": [],
+   "핀다": [],
+   "SCI평가정보": [
+    "에스씨아이평가정보"
+   ],
+   "한국평가데이터": []
+  },
+  "판매대리·중개업자": {
+   "에이피더핀": [],
+   "아이지넷": []
+  },
+  "기타": {
+   "신한디에스": [],
+   "SK텔레콤": [
+    "에스케이텔레콤"
+   ],
+   "한국예탁결제원": [],
+   "하이픈코퍼레이션": [],
+   "수산업협동조합중앙회": []
+  }
+ },
+ "annotations": [
+  {
+   "date": "2024-08-13",
+   "text": "망분리 개선 로드맵 발표",
+   "url": "https://www.fsc.go.kr/no010101/82885"
+  },
+  {
+   "date": "2026-01-22",
+   "text": "인공지능기본법 시행",
+   "url": "https://korea.kr/news/policyNewsView.do?newsId=148958380"
+  },
+  {
+   "date": "2026-04-15",
+   "text": "생성형 AI 모델 변경 절차 간소화",
+   "url": "https://www.fsc.go.kr/no010101/86712"
+  },
+  {
+   "date": "2026-06-22",
+   "text": "금융분야 인공지능 가이드라인 시행",
+   "url": "https://www.fsc.go.kr/no010101/87142"
+  },
+  {
+   "date": "2026-11-05",
+   "text": "망분리 규제 전면 해제 추진 발표",
+   "url": "https://www.fsc.go.kr/no010101/88086"
+  }
+ ],
+ "classification": {
+  "basis": "금융업 허가·등록 업종(금융감독원 「제도권 금융회사 조회」의 업종 구분)",
+  "url": "https://fine.fss.or.kr/fine/fncco/systemFncCo/list.do?menuNo=900038",
+  "sectors": {
+   "은행": "시중·지방·인터넷전문·특수은행, 외국은행 국내지점",
+   "보험": "생명·손해보험회사",
+   "금융투자": "증권회사, 자산운용사",
+   "신용카드": "신용카드업자",
+   "캐피탈": "할부금융업자, 시설대여업자, 신기술사업금융업자(여신전문금융업법, 신용카드업자 제외)",
+   "저축은행": "상호저축은행",
+   "금융지주": "은행지주·비은행지주회사",
+   "전자금융업자": "전자금융거래법상 전자금융업 등록 회사",
+   "신용정보업자": "신용조회업자, 본인신용정보관리업자(마이데이터)",
+   "판매대리·중개업자": "금융소비자보호법상 금융상품판매대리·중개업자(대출모집법인, 법인보험대리점)",
+   "기타": "금융유관기관, 비금융회사 등"
+  }
+ },
+ "derived": {
+  "computed_on": "2026-11-23",
+  "estimated_total": 214,
+  "post_anchor": 45,
+  "pre_anchor_named": 135,
+  "unreconciled": 34,
+  "totals": {
+   "A": 112,
+   "B": 68,
+   "U": 28
+  },
+  "firms_total": 83,
+  "by_sector": [
+   {
+    "sector": "금융투자",
+    "firms": 18,
+    "names": [
+     "DB금융투자",
+     "KB자산운용",
+     "KB증권",
+     "NH투자증권",
+     "골드만삭스증권 서울지점",
+     "교보증권",
+     "넥스트증권",
+     "메릴린치인터내셔날엘엘씨증권 서울지점",
+     "미래에셋증권",
+     "상상인증권",
+     "신한투자증권",
+     "유안타증권",
+     "카카오페이증권",
+     "키움증권",
+     "토스증권",
+     "한국투자증권",
+     "한화투자증권",
+     "현대차증권"
+    ]
+   },
+   {
+    "sector": "보험",
+    "firms": 17,
+    "names": [
+     "AIA생명보험",
+     "BNP파리바카디프생명보험",
+     "DB생명보험",
+     "KB라이프생명보험",
+     "KB손해보험",
+     "iM라이프생명보험",
+     "교보라이프플래닛생명보험",
+     "교보생명",
+     "라이나생명",
+     "메트라이프생명보험",
+     "미래에셋생명",
+     "삼성생명",
+     "삼성화재해상보험",
+     "신한라이프생명보험",
+     "카카오페이손해보험",
+     "한화생명보험",
+     "한화손해보험"
+    ]
+   },
+   {
+    "sector": "은행",
+    "firms": 13,
+    "names": [
+     "BNK부산은행",
+     "KB국민은행",
+     "NH농협은행",
+     "iM뱅크",
+     "미쓰이스미토모은행 서울지점",
+     "뱅크오브아메리카 서울지점",
+     "신한은행",
+     "우리은행",
+     "카카오뱅크",
+     "케이뱅크",
+     "토스뱅크",
+     "하나은행",
+     "한국씨티은행"
+    ]
+   },
+   {
+    "sector": "캐피탈",
+    "firms": 8,
+    "names": [
+     "BNK캐피탈",
+     "JB우리캐피탈",
+     "KB캐피탈",
+     "iM캐피탈",
+     "쿠팡파이낸셜",
+     "폭스바겐파이낸셜서비스코리아",
+     "현대캐피탈",
+     "현대커머셜"
+    ]
+   },
+   {
+    "sector": "전자금융업자",
+    "firms": 7,
+    "names": [
+     "네이버파이낸셜",
+     "당근페이",
+     "롯데멤버스",
+     "비바리퍼블리카",
+     "카카오페이",
+     "쿠팡페이",
+     "토스페이먼츠"
+    ]
+   },
+   {
+    "sector": "신용카드",
+    "firms": 5,
+    "names": [
+     "KB국민카드",
+     "비씨카드",
+     "삼성카드",
+     "신한카드",
+     "현대카드"
+    ]
+   },
+   {
+    "sector": "신용정보업자",
+    "firms": 4,
+    "names": [
+     "SCI평가정보",
+     "뱅크샐러드",
+     "핀다",
+     "한국평가데이터"
+    ]
+   },
+   {
+    "sector": "금융지주",
+    "firms": 3,
+    "names": [
+     "BNK금융지주",
+     "KB금융지주",
+     "신한금융지주"
+    ]
+   },
+   {
+    "sector": "저축은행",
+    "firms": 2,
+    "names": [
+     "JT친애저축은행",
+     "웰컴저축은행"
+    ]
+   },
+   {
+    "sector": "판매대리·중개업자",
+    "firms": 2,
+    "names": [
+     "아이지넷",
+     "에이피더핀"
+    ]
+   },
+   {
+    "sector": "기타",
+    "firms": 4,
+    "names": [
+     "SK텔레콤",
+     "신한디에스",
+     "하이픈코퍼레이션",
+     "한국예탁결제원"
+    ]
+   }
+  ],
+  "capital": [
+   {
+    "name": "KB캐피탈",
+    "rounds": [
+     {
+      "date": "2024-12-11",
+      "category": "A",
+      "label": "클라우드를 활용한 생성형 AI의 내부망 이용",
+      "url": "https://www.fsc.go.kr/no010101/83584",
+      "count": null
+     }
+    ]
+   },
+   {
+    "name": "BNK캐피탈",
+    "rounds": [
+     {
+      "date": "2025-01-15",
+      "category": "B",
+      "label": "내부 업무용 단말기에서 SaaS 및 생성형 AI 이용 (M365 Copilot)",
+      "url": "https://www.fsc.go.kr/no010101/83862",
+      "count": null
+     }
+    ]
+   },
+   {
+    "name": "현대캐피탈",
+    "rounds": [
+     {
+      "date": "2025-01-15",
+      "category": "B",
+      "label": "내부 업무용 단말기에서 SaaS 및 생성형 AI 이용 (M365 Copilot)",
+      "url": "https://www.fsc.go.kr/no010101/83862",
+      "count": null
+     },
+     {
+      "date": "2025-01-15",
+      "category": "B",
+      "label": "내부 업무용 단말기에서 SaaS 및 생성형 AI 이용 (HyperClovaX, AWS Bedrock, Azure OpenAI 등)",
+      "url": "https://www.fsc.go.kr/no010101/83862",
+      "count": null
+     }
+    ]
+   },
+   {
+    "name": "iM캐피탈",
+    "rounds": [
+     {
+      "date": "2025-04-16",
+      "category": "A",
+      "label": "클라우드를 활용한 생성형 AI의 내부망 이용",
+      "url": "https://www.fsc.go.kr/no010101/84380",
+      "count": null
+     }
+    ]
+   },
+   {
+    "name": "JB우리캐피탈",
+    "rounds": [
+     {
+      "date": "2025-04-16",
+      "category": "A",
+      "label": "클라우드를 활용한 생성형 AI의 내부망 이용",
+      "url": "https://www.fsc.go.kr/no010101/84380",
+      "count": null
+     },
+     {
+      "date": "2026-07-01",
+      "category": "A",
+      "label": "내부 임직원 및 고객 대상 생성형 AI 활용 서비스",
+      "url": "https://www.fsc.go.kr/no010101/87236",
+      "count": null
+     }
+    ]
+   },
+   {
+    "name": "폭스바겐파이낸셜서비스코리아",
+    "rounds": [
+     {
+      "date": "2025-05-02",
+      "category": "B",
+      "label": "클라우드를 활용한 SaaS의 내부망 이용 (M365 및 생성형 AI 어시스턴트 Copilot 등)",
+      "url": "https://www.fsc.go.kr/no010101/84483",
+      "count": null
+     }
+    ]
+   },
+   {
+    "name": "현대커머셜",
+    "rounds": [
+     {
+      "date": "2025-06-25",
+      "category": "A",
+      "label": "내부 시스템에서 생성형 AI를 활용하는 서비스",
+      "url": "https://www.fsc.go.kr/no010101/84808",
+      "count": null
+     },
+     {
+      "date": "2026-07-01",
+      "category": "A",
+      "label": "내부 임직원 및 고객 대상 생성형 AI 활용 서비스",
+      "url": "https://www.fsc.go.kr/no010101/87236",
+      "count": null
+     }
+    ]
+   },
+   {
+    "name": "쿠팡파이낸셜",
+    "rounds": [
+     {
+      "date": "2026-07-01",
+      "category": "A",
+      "label": "내부 임직원 및 고객 대상 생성형 AI 활용 서비스",
+      "url": "https://www.fsc.go.kr/no010101/87236",
+      "count": null
+     }
+    ]
+   }
+  ],
+  "series": [
+   {
+    "id": "fsc-83554",
+    "date": "2024-12-09",
+    "url": "https://www.fsc.go.kr/no010101/83554",
+    "A": 10,
+    "B": 0,
+    "U": 0,
+    "changes": 0
+   },
+   {
+    "id": "fsc-83584",
+    "date": "2024-12-11",
+    "url": "https://www.fsc.go.kr/no010101/83584",
+    "A": 3,
+    "B": 0,
+    "U": 0,
+    "changes": 0
+   },
+   {
+    "id": "fsc-83862",
+    "date": "2025-01-15",
+    "url": "https://www.fsc.go.kr/no010101/83862",
+    "A": 0,
+    "B": 41,
+    "U": 0,
+    "changes": 0
+   },
+   {
+    "id": "fsc-84380",
+    "date": "2025-04-16",
+    "url": "https://www.fsc.go.kr/no010101/84380",
+    "A": 21,
+    "B": 0,
+    "U": 0,
+    "changes": 1
+   },
+   {
+    "id": "fsc-84483",
+    "date": "2025-05-02",
+    "url": "https://www.fsc.go.kr/no010101/84483",
+    "A": 0,
+    "B": 27,
+    "U": 0,
+    "changes": 0
+   },
+   {
+    "id": "fsc-84808",
+    "date": "2025-06-25",
+    "url": "https://www.fsc.go.kr/no010101/84808",
+    "A": 13,
+    "B": 0,
+    "U": 0,
+    "changes": 2
+   },
+   {
+    "id": "fsc-85310",
+    "date": "2025-09-17",
+    "url": "https://www.fsc.go.kr/no010101/85310",
+    "A": 20,
+    "B": 0,
+    "U": 0,
+    "changes": 0
+   },
+   {
+    "id": "fsc-85901",
+    "date": "2025-12-22",
+    "url": "https://www.fsc.go.kr/no010101/85901",
+    "A": 0,
+    "B": 0,
+    "U": 28,
+    "changes": 0
+   },
+   {
+    "id": "fsc-87236",
+    "date": "2026-07-01",
+    "url": "https://www.fsc.go.kr/no010101/87236",
+    "A": 24,
+    "B": 0,
+    "U": 0,
+    "changes": 8
+   },
+   {
+    "id": "fsc-87893",
+    "date": "2026-10-07",
+    "url": "https://www.fsc.go.kr/no010101/87893",
+    "A": 21,
+    "B": 0,
+    "U": 0,
+    "changes": 0
+   }
+  ],
+  "changes_total": 11,
+  "latest": {
+   "date": "2026-10-07",
+   "url": "https://www.fsc.go.kr/no010101/87893",
+   "count": 21,
+   "firms": 14
+  }
+ }
+}
