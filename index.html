@@ -505,19 +505,17 @@
   .cta-band{position:relative;padding-top:clamp(64px, 7vw, 112px);background:linear-gradient(180deg, var(--white) 0 70%, var(--g-950) 70%)}
   .cta-band::before{content:"";position:absolute;left:0;right:0;top:0;bottom:30%;background:url("img/waves.svg") center top / cover no-repeat;pointer-events:none}
   .cta-band .wrap{position:relative}
-  .cta-card{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:32px;padding:36px 48px;border-radius:var(--r-lg);background:var(--g-900);color:var(--white)}
-  .cta-card .circuit{position:absolute;z-index:-1;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;pointer-events:none}
+  .cta-card{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) 200px;align-items:center;gap:32px;padding:36px 56px 36px 48px;border-radius:var(--r-lg);background:var(--g-900);color:var(--white)}
+  .cta-bg{position:absolute;z-index:-1;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+  .cta-card .circuit{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
   .cta-card .sh{font-size:22px;color:var(--white)}
   .cta-card .lede{margin-top:6px;max-width:520px;font-size:15px;line-height:1.6;color:var(--on-dark-2)}
   .cta-card .btn{margin-top:24px}
-  .cta-art{position:relative;width:236px;height:164px}
-  .cta-art .disc{position:absolute;left:64px;top:30px;display:grid;place-items:center;width:108px;height:108px;border-radius:50%;background:var(--white);box-shadow:var(--sh-lift)}
-  .cta-art .disc img{display:block;width:60px;height:94px}
-  .cta-art .ft{position:absolute;display:grid;place-items:center;width:44px;height:44px;border-radius:var(--r-md);box-shadow:var(--sh-lift)}
-  .cta-art .ft svg{width:20px;height:20px}
-  .cta-art .f1{left:0;top:12px;background:linear-gradient(160deg, var(--hana-tint), var(--g-300));color:var(--g-900)}
-  .cta-art .f2{right:4px;top:0;background:linear-gradient(160deg, var(--hana-light), var(--hana));color:var(--white)}
-  .cta-art .f3{right:24px;bottom:0;background:var(--white);color:var(--hana-text)}
+  /* 말풍선 캐릭터: 어깨선이 칸 아래 끝에 닿고, 말풍선은 칸 위로 살짝 솟음 */
+  .cta-art{position:relative;align-self:stretch}
+  .talk{position:absolute;left:0;bottom:-36px;width:100%;container-type:inline-size}
+  .talk img{display:block;width:100%;height:auto}
+  .talk .bub{position:absolute;left:4%;right:4%;top:1.4%;height:29.4%;display:flex;align-items:center;justify-content:center;font-size:12cqi;line-height:1;font-weight:700;letter-spacing:-0.02em;color:var(--ink);white-space:nowrap}
   footer{border-top:0;background:var(--g-950);color:var(--on-dark-2)}
   footer .wrap{padding-top:72px;padding-bottom:40px;font-size:15px;line-height:1.5;color:var(--on-dark-2)}
   footer a{color:var(--white)}
@@ -541,8 +539,6 @@
 
   @media (max-width:1024px){
     .mk-panel{padding:28px 24px 16px}
-    .cta-card{grid-template-columns:1fr}
-    .cta-art{display:none}
     .news-box .sec-b,.news-box .sec-b.one{grid-template-columns:1fr}
   }
   @media (max-width:860px){
@@ -578,11 +574,12 @@
     .news-box .more-b{min-height:40px}
     .cta-band{padding-top:56px}
     .cta-band .wrap{padding:0 8px}
-    .cta-card{padding:20px 16px 16px}
+    .cta-card{grid-template-columns:minmax(0,1fr) 112px;gap:8px;padding:20px 12px 16px 16px}
+    .talk{bottom:-16px}
     .cta-card .circuit{display:none}
     .cta-card .sh{font-size:18px}
     .cta-card .lede{margin-top:4px;font-size:13px;line-height:1.55}
-    .cta-card .btn{width:100%;min-width:0;height:44px;margin-top:16px;padding:0 4px 0 16px;font-size:15px}
+    .cta-card .btn{width:100%;min-width:0;max-width:240px;height:44px;margin-top:16px;padding:0 4px 0 16px;font-size:15px}
     .cta-card .btn .arw{width:36px;height:36px}
     footer .wrap{padding-top:40px;padding-bottom:24px}
     .ft-top{gap:16px}
@@ -756,17 +753,14 @@
 <section class="cta-band" aria-labelledby="cta-t">
   <div class="wrap">
     <div class="cta-card on-dark">
-      <img class="circuit" src="img/circuit.svg" alt="">
+      <span class="cta-bg" aria-hidden="true"><img class="circuit" src="img/circuit.svg" alt=""></span>
       <div>
         <h2 class="sh" id="cta-t">카카오톡으로 매일 받기</h2>
         <p class="lede">평일 오전 8시, 그날 호의 핵심 요약을 카카오톡으로 보내 드립니다.</p>
         <button type="button" class="btn btn-sec" data-kk aria-haspopup="dialog">신청하기<span class="arw" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></button>
       </div>
       <div class="cta-art" aria-hidden="true">
-        <span class="ft f1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18h-5"/><path d="M18 14h-8"/><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="10" y="6" rx="1"/></svg></span>
-        <span class="ft f2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>
-        <span class="ft f3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span>
-        <span class="disc"><img src="img/character.png" width="92" height="144" alt=""></span>
+        <span class="talk"><img src="img/talk.webp" width="480" height="607" alt="" loading="lazy" decoding="async"><span class="bub">8시 도착!</span></span>
       </div>
     </div>
   </div>
@@ -800,6 +794,10 @@
   };
 
   let meta, index, sandbox, regulation;
+  // 기사 대표 사진 주소 모음(GitHub 자동 작업이 채움). 없으면 사진 없이 표시
+  let thumbs = null;
+  const getThumbs = async () => { if (!thumbs) { try { thumbs = await load('data/thumbs.json'); } catch (e) { thumbs = {}; } } return thumbs; };
+  const picOf = (it) => { const u = it.image || it.sources.map(x => thumbs && thumbs[x.url]).find(Boolean); return u ? String(u).replace(/^http:\/\//, 'https://') : ''; };
 
   function renderMeta(){
     document.title = meta.name;
@@ -859,7 +857,7 @@
   function renderIssue(is){
     const items = (sec) => sec.items.length ? sec.items.map(it => `
       <article class="item${it.points.length > 1 ? ' fold' : ''}">
-        <div class="it-h${it.image ? ' im' : ''}"><h4><a href="${esc(it.sources[0].url)}">${esc(it.headline)}</a></h4>${it.image ? `<a class="thumb" href="${esc(it.sources[0].url)}" tabindex="-1" aria-hidden="true"><img src="${esc(it.image)}" alt="" width="120" height="80" loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>` : ''}</div>
+        <div class="it-h${picOf(it) ? ' im' : ''}"><h4><a href="${esc(it.sources[0].url)}">${esc(it.headline)}</a></h4>${picOf(it) ? `<a class="thumb" href="${esc(it.sources[0].url)}" tabindex="-1" aria-hidden="true"><img src="${esc(picOf(it))}" alt="" width="120" height="80" loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>` : ''}</div>
         <dl class="pts">${it.points.map((p, i) => `<div${i ? ' class="x"' : ''}><dt>${esc(p.label)}</dt><dd>${hlText(p)}</dd></div>`).join('')}</dl>
         ${it.points.length > 1 ? `<button type="button" class="more-b" aria-expanded="false" data-l="${esc(it.points.slice(1).map(p => p.label).join('·'))} 보기">${esc(it.points.slice(1).map(p => p.label).join('·'))} 보기</button>` : ''}
         <p class="src">출처: ${it.sources.map(s => `<a href="${esc(s.url)}">${esc(s.outlet)}</a>(${esc(srcDate(s.published_at))})`).join(', ')}</p>
@@ -911,7 +909,8 @@
     setView('issue');
     renderArchive(date);
     try {
-      renderIssue(await load(`data/issues/${date}.json`));
+      const [is] = await Promise.all([load(`data/issues/${date}.json`), getThumbs()]);
+      renderIssue(is);
       curTab = (document.querySelector('#news [aria-selected="true"]') || {}).dataset?.tab || null;
       renderJump();
       showMarket(date);
