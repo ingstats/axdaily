@@ -690,15 +690,17 @@
 <dialog class="kk" id="kk-dlg" aria-labelledby="kk-t">
   <div class="kk-in">
     <h2 id="kk-t">카카오톡으로 매일 받기</h2>
-    <p class="kk-lead">평일 오전 8시, 그날 호의 핵심 요약을 카카오톡으로 보내 드립니다.</p>
+    <p class="kk-lead">평일 오전 8시, 그날 호의 핵심 요약을 카카오톡 '나와의 채팅'으로 보내 드립니다.</p>
     <div id="kk-s1">
       <form id="kk-f" novalidate>
         <label class="f" for="kk-nm">이름</label>
         <input id="kk-nm" type="text" maxlength="20" autocomplete="name">
-        <label class="f" for="kk-em">카카오계정 이메일</label>
-        <input id="kk-em" type="email" maxlength="80" autocomplete="email" inputmode="email">
-        <p class="kk-help">카카오톡 › 설정 › 카카오계정에서 확인할 수 있습니다.</p>
-        <label class="kk-ag"><input id="kk-ag" type="checkbox"><span>이름·이메일을 발송 등록에만 쓰는 데 동의합니다. 그만 받으면 지웁니다.</span></label>
+        <div id="kk-emw" hidden>
+          <label class="f" for="kk-em">카카오계정 이메일</label>
+          <input id="kk-em" type="email" maxlength="80" autocomplete="email" inputmode="email">
+          <p class="kk-help">카카오톡 › 설정 › 카카오계정에서 확인할 수 있습니다.</p>
+        </div>
+        <label class="kk-ag"><input id="kk-ag" type="checkbox"><span id="kk-agt">이름을 발송 등록에만 쓰는 데 동의합니다. 그만 받으면 지웁니다.</span></label>
         <p class="kk-msg" id="kk-msg" role="alert"></p>
         <div class="kk-act">
           <button type="submit" class="kk-go" id="kk-go">신청하기</button>
@@ -708,10 +710,10 @@
     </div>
     <div id="kk-s2" hidden>
       <p class="kk-done">신청서 접수 완료</p>
-      <ol>
+      <ol id="kk-steps">
         <li><span>아래 노란 버튼으로 카카오에 로그인합니다.</span></li>
-        <li><span><b>전체 동의</b>를 눌러 메시지 전송·친구목록 두 항목에 동의합니다.</span></li>
-        <li><span>담당자가 등록하면 카카오톡으로 환영 메시지가 옵니다. 그다음 평일부터 받습니다.</span></li>
+        <li><span><b>카카오톡 메시지 전송</b>에 동의합니다.</span></li>
+        <li><span>바로 '나와의 채팅'으로 최신 호가 옵니다. 그다음 평일 오전 8시마다 받습니다.</span></li>
       </ol>
       <a class="kk-kakao" id="kk-auth" href="#">카카오로 동의하기</a>
     </div>
@@ -720,7 +722,7 @@
       <p class="kk-lead">평일 오전 8시에 카카오톡으로 받고 있습니다.</p>
       <div class="kk-act"><button type="button" class="kk-x">닫기</button></div>
     </div>
-    <p class="kk-note">발신 담당자와 서로 카카오톡 친구여야 받을 수 있습니다. 그만 받으려면 <button type="button" class="kk-lv" id="kk-lv">여기</button>를 누르세요(카카오로 본인 확인).</p>
+    <p class="kk-note"><span id="kk-nt">메시지는 카카오톡 '나와의 채팅'에 알림 없이 쌓입니다.</span> 그만 받으려면 <button type="button" class="kk-lv" id="kk-lv">여기</button>를 누르세요(카카오로 본인 확인).</p>
   </div>
 </dialog>
 <script>
@@ -729,7 +731,18 @@
   const $k = (id) => document.getElementById(id);
   const dlg = $k('kk-dlg'), opener = $k('kk-open');
   let back = opener;
-  const show = (from) => { back = from || opener; try { dlg.showModal(); } catch (e) { dlg.setAttribute('open', ''); } };
+  // 발송기가 '나에게 보내기' 방식(mode: memo)인지 확인. 예전 발송기면 예전 신청 창(카카오계정 이메일·담당자 등록)으로 바꿔 보여 줌
+  let legacy = false, probed = false;
+  const toLegacy = () => {
+    legacy = true;
+    $k('kk-emw').hidden = false;
+    $k('kk-agt').textContent = '이름·이메일을 발송 등록에만 쓰는 데 동의합니다. 그만 받으면 지웁니다.';
+    $k('kk-steps').innerHTML = '<li><span>아래 노란 버튼으로 카카오에 로그인합니다.</span></li><li><span><b>전체 동의</b>를 눌러 메시지 전송·친구목록 두 항목에 동의합니다.</span></li><li><span>담당자가 등록하면 카카오톡으로 환영 메시지가 옵니다. 그다음 평일부터 받습니다.</span></li>';
+    $k('kk-nt').textContent = '발신 담당자와 서로 카카오톡 친구여야 받을 수 있습니다.';
+    dlg.querySelector('.kk-lead').textContent = '평일 오전 8시, 그날 호의 핵심 요약을 카카오톡으로 보내 드립니다.';
+  };
+  const probe = () => { if (probed) return; probed = true; post({act: 'ping'}).then((r) => { if (r && r.ok && r.mode !== 'memo') toLegacy(); }).catch(() => { probed = false; }); };
+  const show = (from) => { back = from || opener; probe(); try { dlg.showModal(); } catch (e) { dlg.setAttribute('open', ''); } };
   const hide = () => { try { dlg.close(); } catch (e) { dlg.removeAttribute('open'); } if (back) back.focus(); };
   window.kkOpen = show;
   opener.addEventListener('click', () => show(opener));
@@ -741,14 +754,14 @@
   const go = $k('kk-go'), msg = $k('kk-msg');
   $k('kk-f').addEventListener('submit', async (e) => {
     e.preventDefault(); msg.textContent = '';
-    const name = $k('kk-nm').value.trim(), email = $k('kk-em').value.trim();
+    const name = $k('kk-nm').value.trim(), email = legacy ? $k('kk-em').value.trim() : '';
     if (!name) { msg.textContent = '이름을 적어 주세요.'; $k('kk-nm').focus(); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = '카카오계정 이메일 형식을 확인해 주세요.'; $k('kk-em').focus(); return; }
+    if (legacy && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = '카카오계정 이메일 형식을 확인해 주세요.'; $k('kk-em').focus(); return; }
     if (!$k('kk-ag').checked) { msg.textContent = '아래 안내에 동의해 주세요.'; return; }
     go.disabled = true; go.textContent = '보내는 중…';
     try {
-      const r = await post({act: 'apply', name, email, agree: true});
-      if (!r || !r.ok) { msg.textContent = (r && r.msg) || '신청하지 못했습니다. 다시 시도해 주세요.'; return; }
+      const r = await post(legacy ? {act: 'apply', name, email, agree: true} : {act: 'apply', name, agree: true});
+      if (!r || !r.ok) { msg.textContent = (r && r.msg) || '신청하지 못했습니다. 다시 시도해 주세요.'; if (r && /이메일/.test(r.msg || '')) toLegacy(); return; }
       if (r.active) { step(2); return; }
       $k('kk-auth').href = r.url; step(1); $k('kk-auth').focus();
     } catch (err) { msg.textContent = '연결이 불안정합니다. 잠시 뒤 다시 눌러 주세요.'; }
