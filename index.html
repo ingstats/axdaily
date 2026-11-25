@@ -452,7 +452,7 @@
     .jump{top:var(--hh)}
     section.sec,.arch-m,.news-box{scroll-margin-top:calc(var(--hh) + 56px)}
   }
-  .band{background:transparent;padding:32px 0 40px}
+  .band{background:transparent;padding:16px 0 40px}
   .panel,.arch{border-radius:var(--r-md);box-shadow:var(--sh-lift)}
   .wl-n .s{font-size:12px}
 
@@ -554,7 +554,7 @@
   }
   @media (max-width:860px){
     .sh{font-size:22px}
-    .band{padding:12px 0 24px}
+    .band{padding:0 0 24px}
     .band .wrap{padding:0 8px}
     .arch-m{margin:48px 0 0}
     .ft-top{grid-template-columns:1fr}
@@ -658,7 +658,19 @@
 </header>
 <div class="hero-zone">
 
-<h1 id="nl-name" class="sr">AX Daily Report</h1>
+<section class="about" aria-labelledby="nl-name">
+  <div class="wrap">
+    <div>
+      <h1 id="nl-name"></h1>
+      <p id="nl-desc"></p>
+      <dl class="facts">
+        <div><dt>발송</dt><dd id="nl-freq"></dd></div>
+        <div><dt>발행</dt><dd id="nl-team"></dd></div>
+      </dl>
+    </div>
+    <img class="mascot" src="img/character.png" width="92" height="144" alt="">
+  </div>
+</section>
 
 <div class="band" id="band">
   <div class="wrap">
@@ -803,6 +815,9 @@
   function renderMeta(){
     document.title = meta.name;
     $('nl-name').textContent = meta.name;
+    $('nl-desc').textContent = meta.description;
+    $('nl-freq').textContent = meta.frequency_label;
+    $('nl-team').textContent = meta.team;
     if (meta.hub_url) {
       $('site').href = meta.hub_url;
       $('join').href = meta.hub_url + '#' + meta.id;
