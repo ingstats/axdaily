@@ -1,0 +1,49 @@
+# 발행물이 main에 올라오면 기사 링크의 대표 사진 주소를 data/thumbs.json에 모은다.
+name: 기사 대표 사진
+on:
+  push:
+    branches: [main]
+    paths: ['data/issues/**', 'tools/thumbs.py']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: thumbs
+  cancel-in-progress: false
+
+jobs:
+  thumbs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 기사 링크에서 대표 사진 주소 모으기
+        run: python3 tools/thumbs.py
+
+      - name: 바뀌었으면 커밋
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain -- data/thumbs.json)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/thumbs.json
+          git commit -m "기사 대표 사진 주소 갱신"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            sleep 5
+          done
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # 자동 작업이 올린 커밋은 사이트 배포를 다시 부르지 않을 수 있어 직접 요청
+      - name: 사이트 다시 배포
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
