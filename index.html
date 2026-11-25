@@ -825,12 +825,7 @@
     } else {
       $('site').removeAttribute('href');
     }
-    const mail = meta.contact_email && !/@example\.(com|org|net)$/i.test(meta.contact_email) ? meta.contact_email : '';
     $('foot').innerHTML = `
-      <div class="ft-top">
-        <div><p class="ft-name">${esc(meta.name)}</p><p class="ft-desc">${esc(meta.description)}</p></div>
-        <dl class="ft-meta"><dt>발송</dt><dd>${esc(meta.frequency_label)}</dd><dt>발행</dt><dd>${esc(meta.team)}</dd>${mail ? `<dt>문의</dt><dd><a href="mailto:${esc(mail)}">${esc(mail)}</a></dd>` : ''}</dl>
-      </div>
       <p class="wordmark" aria-hidden="true">${esc(meta.cover_word || 'AX')} Daily</p>
       <div class="ft-bot"><p>본 자료는 언론 보도와 공공기관 발표 자료를 요약·정리한 것으로, 기사 원문의 저작권은 각 언론사에 있습니다.</p><p>카카오톡으로 매일 받기: <button type="button" class="ft-kk" data-kk aria-haspopup="dialog">신청하기</button></p></div>`;
   }
